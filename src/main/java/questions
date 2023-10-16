@@ -1,0 +1,14 @@
+
+
+Group id : correspond à la racine qui va englober tous les projets d’une entreprise par exemple.
+Il peut être vu comme un nom de domaine. Une entreprise crée plusieurs projets.
+Artifact id : correspond au nom du proje
+
+
+
+HOW IT WORKS
+delete from user where idUser = 1;
+select * from user;
+
+pour update aller dans le m sur le côté droit et faire le bouton reload
+
