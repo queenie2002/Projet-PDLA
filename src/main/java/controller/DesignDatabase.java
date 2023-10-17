@@ -17,10 +17,11 @@ public class DesignDatabase {
     }
 
 
-    public String createTableService() { /*table service*/
+    public static String createTableService() { /*table service*/
         String createService = "create table if not exists service (" +
                 "idService int primary key," +
-                "idUser int references user(idUser) ON DELETE CASCADE," +
+                "idPatient int references user(idUser) ON DELETE CASCADE," +
+                "idVolunteer int references user(idUser) ON DELETE CASCADE," +
                 "location VARCHAR(20)," +
                 "description VARCHAR(255)," +
                 "typeOfService int," + /*si 0=offered; si 1=provided*/
@@ -29,31 +30,31 @@ public class DesignDatabase {
         return createService;
     }
 
-    public String createTablePatient() {   /*table patient*/
+    public static String createTablePatient() {   /*table patient*/
         String createPatient = "create table if not exists patient (" +
                 "idPatient int references user(idUser) ON DELETE CASCADE primary key) inherits (user);";
         return createPatient;
     }
 
-    public String createTableVolunteer() {   /*table volunteer*/
+    public static String createTableVolunteer() {   /*table volunteer*/
         String createVolunteer = "create table if not exists volunteer (" +
                 "idVolunteer int references user(idUser) ON DELETE CASCADE primary key) inherits (user);";
         return createVolunteer;
     }
 
-    public String createTableGuarantor() {   /*table guanrantor*/
+    public static String createTableGuarantor() {   /*table guanrantor*/
         String createGuarantor = "create table if not exists guarantor (" +
                 "idGuarantor int references user(idUser) ON DELETE CASCADE primary key) inherits (user);";
         return createGuarantor;
     }
 
 
-    public String insertTableUser(int idUser, String firstName, String lastName, int type, String password, String dateOfBirth) {    /*ATTENTION DONNER DOB EN STRING*/
+    /*public String insertTableUser(int idUser, String firstName, String lastName, int type, String password, String dateOfBirth) {
         String insertSql = "INSERT INTO user (idUser, firstName, lastName, type, password, dateOfBirth) VALUES (" + String.valueOf(idUser) + ",'" + firstName + "','" + lastName + "'," + String.valueOf(type) + ",'" + password + "','" + dateOfBirth + "') ;";
         return insertSql;
-    }
+    }*/
 
-    public String insertTableService(int idService, int idUser, String location, String description, int typeOfService, int status) {
+    /*public String insertTableService(int idService, int idUser, String location, String description, int typeOfService, int status) {
         String insertSql = "INSERT INTO service (idService, idUser, location, description, typeOfService, status) VALUES (" + String.valueOf(idService)+ "," + String.valueOf(idUser) + ", '" + location + "' , '" + description + "' ," + String.valueOf(typeOfService) + "," + String.valueOf(status) + ");";
         return insertSql;
     }
@@ -70,9 +71,7 @@ public class DesignDatabase {
     public String insertTableGuarantor(int idGuarantor){
         String insertSql = "INSERT INTO guarantor (idGuarantor) VALUES (" + String.valueOf(idGuarantor) + ");";
         return insertSql;
-    } 
-
-//change whataoevnaeo
+    } */
 
 
 }

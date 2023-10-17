@@ -3,6 +3,11 @@
 Group id : correspond à la racine qui va englober tous les projets d’une entreprise par exemple.
 Il peut être vu comme un nom de domaine. Une entreprise crée plusieurs projets.
 Artifact id : correspond au nom du proje
+est ce que dans designdatabase dans service il comprend que deux iduser differents
+
+
+
+
 
 
 
@@ -11,4 +16,20 @@ delete from user where idUser = 1;
 select * from user;
 
 pour update aller dans le m sur le côté droit et faire le bouton reload
+
+pour connect to database, après faire use projet_gei_002;
+
+
+
+
+Statement Database
+/*connection*/
+UseDatabase database = new UseDatabase();
+Connection conn;
+conn = database.connectToDatabase();
+/*insertion*/
+String insertSql =                               ///////////////// LE TRUC QU'ON FAIT
+database.doStatementDatabase(conn,insertSql);
+database.disconnectToDatabase(conn);
+
 
