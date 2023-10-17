@@ -32,10 +32,10 @@ public class ActualApp  {
 
             Statement statement = connection.createStatement();
             statement.execute(DesignDatabase.createTableUser());
-            statement.execute(DesignDatabase.createTableVolunteer);
-            statement.execute(DesignDatabase.createTablePatient);
-            statement.execute(createTableGuarantor);
-            statement.execute(createTableService);
+            statement.execute(DesignDatabase.createTableVolunteer());
+            statement.execute(DesignDatabase.createTablePatient());
+            statement.execute(DesignDatabase.createTableGuarantor());
+            statement.execute(DesignDatabase.createTableService());
         }
         catch (SQLException e) {
             System.out.println("problem");
