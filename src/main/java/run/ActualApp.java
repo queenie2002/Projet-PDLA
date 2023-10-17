@@ -1,7 +1,10 @@
 package run;
 import controller.DesignDatabase;
 
-import java.sql.*;
+/*import java.sql.*;*/
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class ActualApp  {
 
@@ -22,7 +25,6 @@ public class ActualApp  {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url, username, password);
-            System.out.println("*************************");
         } catch (SQLException e) {
             e.printStackTrace();
         }
