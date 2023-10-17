@@ -1,6 +1,6 @@
 package model;
 
-public class user{
+public class User{
     //ATTRIBUTES
     private int idUser; 
     private String firstName;
@@ -10,7 +10,7 @@ public class user{
     private String dateOfBirth;
     
     //CONSTRUCTOR
-    public user (int idUser, String firstName, String lastName, int type, String password, String dateOfBirth){
+    public User (int idUser, String firstName, String lastName, int type, String password, String dateOfBirth){
         this.idUser = idUser;
         this.firstName = firstName;
         this.lastName = lastName;

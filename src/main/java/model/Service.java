@@ -1,13 +1,7 @@
 package model;
 
-import java.util.*;
 
-
-
-
-
-
-public class service{
+public class Service{
     //ATTRIBUTES
     private int idService; 
     private int idUser;
@@ -16,8 +10,8 @@ public class service{
     private int typeOfService; 
     private int status;
     
-    //CONSTRUCTEUR
-    public service ( int idService, int idUser, String location, String description, int typeOfService, int status){
+    //CONSTRUCTOR
+    public Service ( int idService, int idUser, String location, String description, int typeOfService, int status){
         this.idService=idService;
         this.idUser=idUser; 
         this.location=location;

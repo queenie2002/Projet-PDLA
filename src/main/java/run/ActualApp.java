@@ -1,12 +1,13 @@
 package run;
+import controller.DesignDatabase;
 
 import java.sql.*;
 
-public class actualApp {
+public class ActualApp  {
 
-    String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
-    String username = "projet_gei_002";
-    String password = "Lio0Uhah";
+    static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
+    static String username = "projet_gei_002";
+    static String password = "Lio0Uhah";
 
 
 
@@ -27,12 +28,19 @@ public class actualApp {
         }
 
         /*CREATE TABLES*/
-        Statement statement = connection.createStatement();
-        statement.execute(createTableUser);
-        statement.execute(createTableVolunteer);
-        statement.execute(createTablePatient);
-        statement.execute(createTableGuarantor);
-        statement.execute(createTableService);
+        try {
+
+            Statement statement = connection.createStatement();
+            statement.execute(DesignDatabase.createTableUser());
+            statement.execute(DesignDatabase.createTableVolunteer);
+            statement.execute(DesignDatabase.createTablePatient);
+            statement.execute(createTableGuarantor);
+            statement.execute(createTableService);
+        }
+        catch (SQLException e) {
+            System.out.println("problem");
+        }
+
 
 
         /**********************************************

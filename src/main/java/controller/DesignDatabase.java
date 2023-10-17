@@ -1,12 +1,10 @@
 package controller;
 
-import java.sql.*;
+
+public class DesignDatabase {
 
 
-public class designDatabase {
-
-
-    public String createTableUser() {   /*table person*/
+    public static String createTableUser() {   /*table person*/
         String createUser = "create table if not exists user (" +
                 "idUser int primary key," +
                 "firstName VARCHAR(20)," +
@@ -60,17 +58,17 @@ public class designDatabase {
         return insertSql;
     }
     public String insertTablePatient (int idPatient){
-        String insertSql = "INSERT INTO patient (idPatient) VALUES (" + String.valueof(idUser) + ");"; 
+        String insertSql = "INSERT INTO patient (idPatient) VALUES (" + String.valueOf(idPatient) + ");";
         return insertSql;
     } 
     
     public String insertTableVolunteer (int idVolunteer){
-        String insertSql = "INSERT INTO volunteer (idVolunteer) VALUES (" + String.valueof(idUser) + ");"; 
+        String insertSql = "INSERT INTO volunteer (idVolunteer) VALUES (" + String.valueOf(idVolunteer) + ");";
         return insertSql;
     }
     
     public String insertTableGuarantor(int idGuarantor){
-        String insertSql = "INSERT INTO guarantor (idGuarantor) VALUES (" + String.valueof(idUser) + ");"; 
+        String insertSql = "INSERT INTO guarantor (idGuarantor) VALUES (" + String.valueOf(idGuarantor) + ");";
         return insertSql;
     } 
 
