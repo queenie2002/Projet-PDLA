@@ -1,16 +1,13 @@
 package run;
-import controller.DesignDatabase;
+import controller.*;
+import model.*;
 
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 
 public class ActualApp  {
-
-    /*static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
+    static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
     static String username = "projet_gei_002";
-    static String password = "Lio0Uhah";*/
+    static String password = "Lio0Uhah";
 
 
 
@@ -20,26 +17,21 @@ public class ActualApp  {
         /**********************************************
          *               INITIALIZING
         ***********************************************/
-        /*
+
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-
             Statement statement = connection.createStatement();
-            statement.execute(DesignDatabase.createTableUser()
-            statement.execute(DesignDatabase.createTableVolunteer()
-            statement.execute(DesignDatabase.createTablePatient()
-            statement.execute(DesignDatabase.createTableGuarantor()
-            statement.execute(DesignDatabase.createTableService()
-        }
-        catch (SQLException e) {
+            statement.execute(InitializeDatabase.createTableUser());
+            statement.execute(InitializeDatabase.createTableVolunteer());
+            statement.execute(InitializeDatabase.createTablePatient());
+            statement.execute(InitializeDatabase.createTableGuarantor());
+            statement.execute(InitializeDatabase.createTableService());
+        } catch (SQLException e) {
             System.out.println("problem");
-        }*/
+        }
 
+        /*
         UseDatabase database = new UseDatabase();
         Connection conn;
         conn = database.connectToDatabase();
@@ -49,7 +41,7 @@ public class ActualApp  {
         database.doStatementDatabase(conn,InitializeDatabase.createTablePatient());
         database.doStatementDatabase(conn,InitializeDatabase.createTableGuarantor());
         database.doStatementDatabase(conn,InitializeDatabase.createTableService());
-        database.disconnectToDatabase(conn);
+        database.disconnectToDatabase(conn);*/
 
         /**********************************************
          *            STARTING PROGRAM
