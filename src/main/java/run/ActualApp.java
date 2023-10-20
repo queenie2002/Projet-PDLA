@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class ActualApp  {
 
-    static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
+    /*static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
     static String username = "projet_gei_002";
-    static String password = "Lio0Uhah";
+    static String password = "Lio0Uhah";*/
 
 
 
@@ -20,30 +20,36 @@ public class ActualApp  {
         /**********************************************
          *               INITIALIZING
         ***********************************************/
-
-        /*TO CONNECT*/
+        /*
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        /*CREATE TABLES*/
         try {
 
             Statement statement = connection.createStatement();
-            statement.execute(DesignDatabase.createTableUser());
-            statement.execute(DesignDatabase.createTableVolunteer());
-            statement.execute(DesignDatabase.createTablePatient());
-            statement.execute(DesignDatabase.createTableGuarantor());
-            statement.execute(DesignDatabase.createTableService());
+            statement.execute(DesignDatabase.createTableUser()
+            statement.execute(DesignDatabase.createTableVolunteer()
+            statement.execute(DesignDatabase.createTablePatient()
+            statement.execute(DesignDatabase.createTableGuarantor()
+            statement.execute(DesignDatabase.createTableService()
         }
         catch (SQLException e) {
             System.out.println("problem");
-        }
+        }*/
 
-
+        UseDatabase database = new UseDatabase();
+        Connection conn;
+        conn = database.connectToDatabase();
+        
+        database.doStatementDatabase(conn,InitializeDatabase.createTableUser());
+        database.doStatementDatabase(conn,InitializeDatabase.createTableVolunteer());
+        database.doStatementDatabase(conn,InitializeDatabase.createTablePatient());
+        database.doStatementDatabase(conn,InitializeDatabase.createTableGuarantor());
+        database.doStatementDatabase(conn,InitializeDatabase.createTableService());
+        database.disconnectToDatabase(conn);
 
         /**********************************************
          *            STARTING PROGRAM
