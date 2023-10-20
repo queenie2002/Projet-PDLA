@@ -1,7 +1,7 @@
 package controller;
 
 
-public class DesignDatabase {
+public class InitializeDatabase {
 
 
     public static String createTableUser() {   /*table person*/
