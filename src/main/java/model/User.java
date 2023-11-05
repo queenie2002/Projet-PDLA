@@ -5,7 +5,7 @@ public class User{
     private int idUser; 
     private String firstName;
     private String lastName;
-    private int type; 
+    private int type; /* volontaire ou patient ou other, 0 1 2 ecrit qq part*/
     private String password; 
     private String dateOfBirth;
     
