@@ -3,11 +3,17 @@ import controller.*;
 import model.*;
 
 import java.sql.*;
+import view.*;
 
 public class ActualApp  {
     static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/projet_gei_002";
     static String username = "projet_gei_002";
     static String password = "Lio0Uhah";
+
+
+
+
+
 
 
 
@@ -47,6 +53,13 @@ public class ActualApp  {
         /**********************************************
          *            STARTING PROGRAM
          ***********************************************/
+        //Login login = new Login();
+
+        String user = Login.getUsername();
+        String pwd = Login.getPassword();
+        System.out.println(user);
+        System.out.println(pwd);
+
 
 
 
