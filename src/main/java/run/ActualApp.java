@@ -55,10 +55,6 @@ public class ActualApp  {
          ***********************************************/
         //Login login = new Login();
 
-        String user = Login.getUsername();
-        String pwd = Login.getPassword();
-        System.out.println(user);
-        System.out.println(pwd);
 
 
 

@@ -3,18 +3,23 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.*;
+import java.util.function.Consumer;
+
 public class Login {
+    private static Consumer<String[]> credentialsCallback;
 
-    private static String username;
-    private static String password;
-
-    public Login() {
-
+    public static void setCredentialsCallback(Consumer<String[]> callback) {
+        credentialsCallback = callback;
     }
 
-    private static void createAndShowGUI() {
-        JTextField[] jtFields = new JTextField[2];
+    private JTextField[] jtFields = new JTextField[2];
+
+    public Login() {
+        // Initialize the GUI components
+        createAndShowGUI();
+    }
+
+    private void createAndShowGUI() {
         jtFields[0] = new JTextField();
         jtFields[1] = new JTextField();
 
@@ -22,18 +27,19 @@ public class Login {
         button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*get text and verify that the password corresponds to the username*/
-                String name = jtFields[0].getText();
-                String pwd = jtFields[1].getText();
-                // System.out.println(username);
-                // System.out.println(password);
-                username = name;
-                password = pwd;
+                String username = getUsername();
+                String password = getPassword();
 
+                // Set the credentials in the UserCredentialsManager
+                UserCredentialsManager.setCredentials(username, password);
+
+                if (credentialsCallback != null) {
+                    credentialsCallback.accept(new String[]{username, password});
+                }
             }
         });
 
-        //create and set up window
+        // Create and set up the window
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,31 +53,22 @@ public class Login {
         p.add(new JLabel("Password"));
         p.add(jtFields[1]);
 
-        p.add(button_login, p);
+        p.add(button_login);
         frame.add(p);
 
-
-        // make window's dimension fit its content
+        // Make the window's dimension fit its content
         frame.pack();
         // Display the window.
         frame.setVisible(true);
-
     }
 
-    public static String getUsername() {
-        return username;
+    public String getUsername() {
+        return this.jtFields[0].getText();
     }
 
-    public static String getPassword() {
-        return password;
+    public String getPassword() {
+        return this.jtFields[1].getText();
     }
 
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
 
-    }
 }

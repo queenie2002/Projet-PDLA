@@ -3,13 +3,18 @@ package view;
 public class Test {
 
     public static void main(String[] args) {
-        Login.main(args);
+        Login login = new Login();
 
+        // Register a callback to handle credentials
+        login.setCredentialsCallback(credentials -> {
+            String username = credentials[0];
+            String password = credentials[1];
 
-        String user = Login.getUsername();
-        String pwd = Login.getPassword();
-        System.out.println(user);
-        System.out.println(pwd);
+            // Use username and password as needed
+            System.out.println("Username in Test: " + username);
+            System.out.println("Password in Test: " + password);
+        });
+
 
     }
 }
