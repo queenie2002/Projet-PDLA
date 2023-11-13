@@ -14,7 +14,6 @@ public class UseDatabase {
         String username = "projet_gei_002";
         String password = "Lio0Uhah";
         conn = DriverManager.getConnection(url, username, password);
-        System.out.println("on s'est connecté");
 
 
         Statement stmt = conn.createStatement();
@@ -22,7 +21,7 @@ public class UseDatabase {
         stmt.execute(connectSQL);
 
       } catch (Exception e) {
-        System.out.println("erreur on n'arrive pas à se connecter dans connectToDabatase");
+        System.out.println("error: couldn't connect to database");
         e.printStackTrace();
       }
     }
@@ -34,7 +33,7 @@ public class UseDatabase {
       Statement stmt = conn.createStatement();
       stmt.execute(toDo);
     } catch (Exception e) {
-      System.out.println("pas réussi à faire le SQL dans doStatementDatabase");
+      System.out.println("error: couldn't execute statement in database");
       e.printStackTrace();
     }
   }
@@ -44,10 +43,9 @@ public class UseDatabase {
     try {
       if (conn != null) {
         conn.close();
-        System.out.println("on s'est déconnecté");
       }
     } catch (Exception e) {
-      System.out.println("erreur on n'arrive pas à se déconnecter de disconnectToDatabase");
+      System.out.println("errpr: couldn't disconnect from database");
       e.printStackTrace();
     }
   }

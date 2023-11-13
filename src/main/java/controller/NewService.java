@@ -5,7 +5,7 @@ import model.Service;
 import java.sql.Connection;
 
 public class NewService {
-    public void AddNewService(Service service) {
+    public static void AddNewService(Service service) {
         UseDatabase database = new UseDatabase();
         Connection conn;
         /*connection*/
@@ -15,4 +15,10 @@ public class NewService {
         database.doStatementDatabase(conn,insertSql);
         database.disconnectToDatabase(conn);
     }
+
+    public static void main(String[] args) {
+        Service service = new Service(1, 1, 1, "hôpital", "hava to do this", 1, 0);
+        AddNewService(service);
+    }
+
 }
