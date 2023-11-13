@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class UseDatabase {
@@ -19,6 +20,7 @@ public class UseDatabase {
         Statement stmt = conn.createStatement();
         String connectSQL = "use projet_gei_002; ";
         stmt.execute(connectSQL);
+        stmt.close();
 
       } catch (Exception e) {
         System.out.println("error: couldn't connect to database");
@@ -32,9 +34,21 @@ public class UseDatabase {
     try {
       Statement stmt = conn.createStatement();
       stmt.execute(toDo);
+      stmt.close();
     } catch (Exception e) {
       System.out.println("error: couldn't execute statement in database");
       e.printStackTrace();
+    }
+  }
+
+  public ResultSet doQueryDatabase(Connection conn, String toDo) {
+    try {
+      Statement stmt = conn.createStatement();
+        return stmt.executeQuery(toDo);
+    } catch (Exception e) {
+      System.out.println("error: couldn't execute statement in database");
+      e.printStackTrace();
+      return null;
     }
   }
 

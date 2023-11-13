@@ -17,7 +17,7 @@ public class NewService {
     }
 
     public static void main(String[] args) {
-        Service service = new Service(1, 1, 1, "hôpital", "hava to do this", 1, 0);
+        Service service = new Service(1, 1, 1, "hôpital", "have to do this", 1, 0);
         AddNewService(service);
     }
 

@@ -33,7 +33,7 @@ public class SignUp {
                 String password = getPassword();
 
                 // Set the credentials in the UserCredentialsManager
-                UserCredentialsManager.setCredentials(firstName, lastName,type, password);
+                UserCredentialsManager.setCredentials(firstName, lastName/*,type, password*/);
 
                // if (credentialsCallback != null) {
               //      credentialsCallback.accept(new String[]{username, password});
