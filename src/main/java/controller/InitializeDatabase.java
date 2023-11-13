@@ -32,19 +32,19 @@ public class InitializeDatabase {
 
     public static String createTablePatient() {   /*table patient*/
         String createPatient = "create table if not exists patient (" +
-                "idPatient int references user(idUser) ON DELETE CASCADE primary key) inherits (user);";
+                "idPatient int primary key references user(idUser) ON DELETE CASCADE );";
         return createPatient;
     }
 
     public static String createTableVolunteer() {   /*table volunteer*/
         String createVolunteer = "create table if not exists volunteer (" +
-                "idVolunteer int references user(idUser) ON DELETE CASCADE primary key) inherits (user);";
+                "idVolunteer int primary key references user(idUser) ON DELETE CASCADE );";
         return createVolunteer;
     }
 
     public static String createTableGuarantor() {   /*table guanrantor*/
         String createGuarantor = "create table if not exists guarantor (" +
-                "idGuarantor int references user(idUser) ON DELETE CASCADE primary key) inherits (user);";
+                "idGuarantor int primary key references user(idUser) ON DELETE CASCADE );";
         return createGuarantor;
     }
 

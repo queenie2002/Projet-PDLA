@@ -1,4 +1,6 @@
-
+mysql -u projet_gei_002 -p -h srv-bdens.insa-toulouse.fr
+Lio0Uhah
+use projet_gei_002;
 
 
 

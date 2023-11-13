@@ -10,7 +10,7 @@ public class UseDatabase {
     Connection conn = null;
     while (conn == null) {
       try {
-        String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/";
+        String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/projet_gei_002";
         String username = "projet_gei_002";
         String password = "Lio0Uhah";
         conn = DriverManager.getConnection(url, username, password);
