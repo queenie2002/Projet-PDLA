@@ -1,13 +1,12 @@
-package org.example;
+package model;
 
-import junit.*;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
+
+public class UserTest extends TestCase {
+
     /**
      * Create the test case
      *
@@ -23,7 +22,7 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( model.UserTest.class );
     }
 
     /**
@@ -34,3 +33,4 @@ public class AppTest
         assertTrue( true );
     }
 }
+
