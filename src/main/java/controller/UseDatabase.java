@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class UseDatabase {
 
-  public static Connection connectToDatabase() {
+  public Connection connectToDatabase() {
 
     Connection conn = null;
 
@@ -32,7 +32,7 @@ public class UseDatabase {
     return conn;
   }
 
-  public static void doStatementDatabase(Connection conn, String toDo) {
+  public void doStatementDatabase(Connection conn, String toDo) {
     try {
       Statement stmt = conn.createStatement();
       stmt.execute(toDo);
@@ -43,7 +43,7 @@ public class UseDatabase {
     }
   }
 
-  public static ResultSet doQueryDatabase(Connection conn, String toDo) {
+  public ResultSet doQueryDatabase(Connection conn, String toDo) {
     try {
       Statement stmt = conn.createStatement();
         return stmt.executeQuery(toDo);
@@ -55,7 +55,7 @@ public class UseDatabase {
   }
 
 
-  public static void disconnectToDatabase(Connection conn) {
+  public void disconnectToDatabase(Connection conn) {
     try {
       if (conn != null) {
         conn.close();
