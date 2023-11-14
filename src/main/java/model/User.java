@@ -10,8 +10,8 @@ public class User{
     private String dateOfBirth;
     
     //CONSTRUCTOR
-    public User (int idUser, String firstName, String lastName, int type, String password, String dateOfBirth){
-        this.idUser = idUser;
+    public User (String firstName, String lastName, int type, String password, String dateOfBirth){
+        //this.idUser = idUser;  ON ENLEVE idUser du constructeur pcq on l'a pas au début
         this.firstName = firstName;
         this.lastName = lastName;
         this.type=type;

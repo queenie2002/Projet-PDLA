@@ -7,8 +7,10 @@ import java.sql.Statement;
 
 public class UseDatabase {
 
-  public Connection connectToDatabase() {
+  public static Connection connectToDatabase() {
+
     Connection conn = null;
+
     while (conn == null) {
       try {
         String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/projet_gei_002";
@@ -30,7 +32,7 @@ public class UseDatabase {
     return conn;
   }
 
-  public void doStatementDatabase(Connection conn, String toDo) {
+  public static void doStatementDatabase(Connection conn, String toDo) {
     try {
       Statement stmt = conn.createStatement();
       stmt.execute(toDo);
@@ -41,7 +43,7 @@ public class UseDatabase {
     }
   }
 
-  public ResultSet doQueryDatabase(Connection conn, String toDo) {
+  public static ResultSet doQueryDatabase(Connection conn, String toDo) {
     try {
       Statement stmt = conn.createStatement();
         return stmt.executeQuery(toDo);
@@ -53,7 +55,7 @@ public class UseDatabase {
   }
 
 
-  public void disconnectToDatabase(Connection conn) {
+  public static void disconnectToDatabase(Connection conn) {
     try {
       if (conn != null) {
         conn.close();
