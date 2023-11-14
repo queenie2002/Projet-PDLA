@@ -1,17 +1,19 @@
 package view;
+import controller.NewUser;
 import model.User;
 
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class SignUp {
 
   private final JTextField[] jtFields = new JTextField[5];
 
 
-    private void createAndShowGUI() {
+    public SignUp () {
 
         jtFields[0] = new JTextField();
         jtFields[1] = new JTextField();
@@ -31,6 +33,11 @@ public class SignUp {
 
                 /*ajout du nouveau user dans la database*/
                 model.User user = new User(firstName,lastName,type,password,dateOfBirth);
+                try {
+                    NewUser.AddNewUser(user);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
 
             }
         });
@@ -43,7 +50,7 @@ public class SignUp {
         emptyLabel.setPreferredSize(new Dimension(175, 100));
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
-        JPanel p = new JPanel(new GridLayout(5, 2));
+        JPanel p = new JPanel(new GridLayout(6, 2));
         p.add(new JLabel("First name"));
         p.add(jtFields[0]);
         p.add(new JLabel("Last name"));
@@ -52,6 +59,11 @@ public class SignUp {
         p.add(jtFields[2]);
         p.add(new JLabel("New Password"));
         p.add(jtFields[3]);
+        p.add(new JLabel("Date of birth"));
+        p.add(jtFields[4]);
+
+
+        p.add(button_signup);
 
         frame.add(p);
         // Make the window's dimension fit its content
