@@ -5,7 +5,6 @@ use projet_gei_002;
 
 
 PROBLEM DOESNT DELETE PROPERLY
-PROBLEM POUR CREER NEWUSER
 
 syst sql peut autoincrémenter
 id comme un entier, randomly generated verifier qu'il n'existe pas,
