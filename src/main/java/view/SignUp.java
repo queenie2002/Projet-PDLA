@@ -1,20 +1,15 @@
 package view;
+import model.User;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.function.Consumer;
-public class SignUp {
-    private static Consumer<String[]> credentialsCallback;
 
-    public static void setCredentialsCallback(Consumer<String[]> callback) {
-        credentialsCallback = callback;
-    }
-  private JTextField[] jtFields = new JTextField[4];
-    public SignUp() {
-        // Initialize the GUI components
-        createAndShowGUI();
-    }
+public class SignUp {
+
+  private final JTextField[] jtFields = new JTextField[5];
+
 
     private void createAndShowGUI() {
 
@@ -22,6 +17,7 @@ public class SignUp {
         jtFields[1] = new JTextField();
         jtFields[2] = new JTextField();
         jtFields[3] = new JTextField();
+        jtFields[4] = new JTextField();
 
         JButton button_signup = new JButton("sign up");
         button_signup.addActionListener(new ActionListener() {
@@ -29,14 +25,13 @@ public class SignUp {
             public void actionPerformed(ActionEvent e) {
                 String firstName = getFirstName();
                 String lastName = getLastName();
-                String type = getType();
+                int type = getType();
                 String password = getPassword();
+                String dateOfBirth = getDateOfBirth();
 
-                // Set the credentials in the UserCredentialsManager
-                UserCredentialsManager.setCredentials(firstName, lastName/*,type, password*/);
+                /*ajout du nouveau user dans la database*/
+                model.User user = new User(firstName,lastName,type,password,dateOfBirth);
 
-               // if (credentialsCallback != null) {
-              //      credentialsCallback.accept(new String[]{username, password});
             }
         });
 
@@ -72,16 +67,19 @@ public class SignUp {
     public String getLastName() {
         return this.jtFields[1].getText();
     }
-    public String getType() {
-        return this.jtFields[2].getText();
+    public int getType() {
+        return Integer.parseInt(this.jtFields[2].getText());
     }
 
     public String getPassword() {
         return this.jtFields[3].getText();
     }
+    public String getDateOfBirth() {
+        return this.jtFields[4].getText();
+    }
 
 
-    /*public static void main(String[] args) {
+   /*public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();

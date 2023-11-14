@@ -2,7 +2,7 @@ package model;
 
 public class User{
     //ATTRIBUTES
-    private int idUser; 
+    private static int idUser=0;
     private String firstName;
     private String lastName;
     private int type; /* patient 0, volunteer 1, guarantoe 2 ecrit qq part*/
@@ -11,7 +11,7 @@ public class User{
     
     //CONSTRUCTOR
     public User (String firstName, String lastName, int type, String password, String dateOfBirth){
-        //this.idUser = idUser;  ON ENLEVE idUser du constructeur pcq on l'a pas au début
+        idUser +=1;
         this.firstName = firstName;
         this.lastName = lastName;
         this.type=type;
@@ -20,7 +20,7 @@ public class User{
     } 
 
     //METHODS
-    public int getId() { return this.idUser; }
+    public int getId() { return idUser; }
     public String getFirstName (){ return this.firstName;}
     public String getLastName(){ return this.lastName;}
     public int getType (){ return this.type;}
