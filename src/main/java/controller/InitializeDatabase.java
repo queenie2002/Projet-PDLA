@@ -21,7 +21,7 @@ public class InitializeDatabase {
         String createService = "create table if not exists service (" +
                 "idService int primary key," +
                 "idPatient int references user(idUser) ON DELETE CASCADE," +
-                "idVolunteer int references user(idUser) ON DELETE CASCADE," +
+                "idVolunteer int references user(idUser) ON DELETE SET NULL," +
                 "location VARCHAR(20)," +
                 "description VARCHAR(255)," +
                 "typeOfService int," + /*si 0=offered; si 1=provided*/
@@ -32,19 +32,22 @@ public class InitializeDatabase {
 
     public static String createTablePatient() {   /*table patient*/
         String createPatient = "create table if not exists patient (" +
-                "idPatient int primary key references user(idUser) ON DELETE CASCADE );";
+                "idPatient int," +
+                "foreign key (idPatient) references user(idUser) ON DELETE CASCADE );";
         return createPatient;
     }
 
     public static String createTableVolunteer() {   /*table volunteer*/
         String createVolunteer = "create table if not exists volunteer (" +
-                "idVolunteer int primary key references user(idUser) ON DELETE CASCADE );";
+                "idVolunteer int," +
+                "foreign key (idVolunteer) references user(idUser) ON DELETE CASCADE );";
         return createVolunteer;
     }
 
     public static String createTableGuarantor() {   /*table guanrantor*/
         String createGuarantor = "create table if not exists guarantor (" +
-                "idGuarantor int primary key references user(idUser) ON DELETE CASCADE );";
+                "idGuarantor int," +
+                "foreign key (idGuarantor) references user(idUser) ON DELETE CASCADE );";
         return createGuarantor;
     }
 

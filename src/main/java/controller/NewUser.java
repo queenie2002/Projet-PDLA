@@ -4,7 +4,6 @@ import model.Service;
 import model.User;
 import java.sql.*;
 
-import static controller.UseDatabase.*;
 
 public class NewUser {
 
@@ -24,8 +23,9 @@ public class NewUser {
 
         while (res.next()) {
             userExists = res.getInt(1);
-            System.out.println(res);
         }
+
+        System.out.print("user id: " + user.getId());
 
         if (userExists == 0) { //means that the user doesn't exist
 
@@ -48,6 +48,7 @@ public class NewUser {
             database.disconnectToDatabase(conn);
 
         } else {
+            System.out.print("user id: " + user.getId());
             System.out.print("error: there is already a user with same id (dans NewUser)");
         }
 
@@ -55,9 +56,9 @@ public class NewUser {
 
 
     public static void main(String[] args) throws SQLException {
-        User user1 = new User("Y-Quynh", "Nguyen", 0, "pwd", "2002-03-25");
+        User user1 = new User("Patient", "Nguyen", 0, "pwd", "2002-03-25");
         AddNewUser(user1);
-        User user2 = new User("Y-Quynh", "Nguyen", 1, "pwd", "2002-03-25");
+        User user2 = new User("Volunteer", "Nguyen", 1, "pwd", "2002-03-25");
         AddNewUser(user2);
     }
 }
