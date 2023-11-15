@@ -1,6 +1,8 @@
 package view;
 
+import controller.NewService;
 import controller.NewUser;
+import model.Service;
 import model.User;
 
 import javax.swing.*;
@@ -11,7 +13,7 @@ import java.sql.SQLException;
 
 public class NewMissionPatient {
     private final JTextField[] jtFields = new JTextField[2];
-    public NewMissionPatient () {
+    public NewMissionPatient (int idUser) {
         jtFields[0] = new JTextField();
         jtFields[1] = new JTextField();
 
@@ -22,21 +24,18 @@ public class NewMissionPatient {
         button_signup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String location = getFirstName();
-                String description = getLastName();
-                int type = getType();
-                String password = getPassword();
-                String dateOfBirth = getDateOfBirth();
-                frame.dispose();
+                String location = getLocation();
+                String description = getDescription();
 
-                /*ajout du nouveau user dans la database*/
-                model.User user = new User(firstName,lastName,type,password,dateOfBirth);
+                /*ajout du nouveau service dans la database*/
+                model.Service service = new Service(idUser,0,location,description,0,0);
                 try {
-                    NewUser.AddNewUser(user);
+                    NewService.AddNewService(service);
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-                ShowIdUser showId = new ShowIdUser(user.getId());
+
+                frame.dispose();
 
             }
         });
@@ -44,21 +43,16 @@ public class NewMissionPatient {
 
 
 
-        JLabel emptyLabel = new JLabel("Sign Up", JLabel.CENTER);
+        JLabel emptyLabel = new JLabel("New Mission", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
         JPanel p = new JPanel(new GridLayout(6, 2));
-        p.add(new JLabel("First name"));
+        p.add(new JLabel("Location : "));
         p.add(jtFields[0]);
-        p.add(new JLabel("Last name"));
+        p.add(new JLabel("Description : "));
         p.add(jtFields[1]);
-        p.add(new JLabel("Patient or Volunteer"));
-        p.add(jtFields[2]);
-        p.add(new JLabel("New Password"));
-        p.add(jtFields[3]);
-        p.add(new JLabel("Date of birth"));
-        p.add(jtFields[4]);
+
 
 
         p.add(button_signup);
@@ -78,7 +72,6 @@ public class NewMissionPatient {
         return this.jtFields[1].getText();
     }
 
-    }
 
 
 
