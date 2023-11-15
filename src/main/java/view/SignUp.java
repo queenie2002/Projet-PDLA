@@ -13,6 +13,7 @@ public class SignUp {
   private final JTextField[] jtFields = new JTextField[5];
 
 
+
     public SignUp () {
 
         jtFields[0] = new JTextField();
@@ -22,6 +23,8 @@ public class SignUp {
         jtFields[4] = new JTextField();
 
         JButton button_signup = new JButton("sign up");
+        JFrame frame = new JFrame("Frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button_signup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,6 +33,7 @@ public class SignUp {
                 int type = getType();
                 String password = getPassword();
                 String dateOfBirth = getDateOfBirth();
+                frame.dispose();
 
                 /*ajout du nouveau user dans la database*/
                 model.User user = new User(firstName,lastName,type,password,dateOfBirth);
@@ -38,13 +42,13 @@ public class SignUp {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+                ShowIdUser showId = new ShowIdUser(user.getId());
 
             }
         });
 
-        // Create and set up the window
-        JFrame frame = new JFrame("Frame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
 
         JLabel emptyLabel = new JLabel("Sign Up", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));

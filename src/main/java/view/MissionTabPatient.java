@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class MissionTabPatient  {
 
-    private static void createAndShowGUI () {
+    public MissionTabPatient(int idUser) {
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -35,13 +35,7 @@ public class MissionTabPatient  {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
+
 }
 
 

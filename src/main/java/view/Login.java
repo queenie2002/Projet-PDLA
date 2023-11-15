@@ -27,7 +27,7 @@ public class Login {
         button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = getUsername();
+                String username = getIdUser();
                 String password = getPassword();
 
                 // Set the credentials in the UserCredentialsManager
@@ -48,7 +48,7 @@ public class Login {
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
         JPanel p = new JPanel(new GridLayout(1, 2));
-        p.add(new JLabel("Username"));
+        p.add(new JLabel("ID user"));
         p.add(jtFields[0]);
         p.add(new JLabel("Password"));
         p.add(jtFields[1]);
@@ -62,7 +62,7 @@ public class Login {
         frame.setVisible(true);
     }
 
-    public String getUsername() {
+    public String getIdUser() {
         return this.jtFields[0].getText();
     }
 
