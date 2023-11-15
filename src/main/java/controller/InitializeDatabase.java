@@ -5,7 +5,7 @@ public class InitializeDatabase {
 
 
     public static String createTableUser() {   /*table person*/
-        String createUser = "create table if not exists user (" +
+        return "create table if not exists user (" +
                 "idUser int primary key," +
                 "firstName VARCHAR(20)," +
                 "lastName VARCHAR(20)," +
@@ -13,12 +13,11 @@ public class InitializeDatabase {
                 "password VARCHAR(20)," +
                 "dateOfBirth date" +  /*year month date*/
                 ");";
-        return createUser;
     }
 
 
     public static String createTableService() { /*table service*/
-        String createService = "create table if not exists service (" +
+        return "create table if not exists service (" +
                 "idService int primary key," +
                 "idPatient int references user(idUser) ON DELETE CASCADE," +
                 "idVolunteer int references user(idUser) ON DELETE SET NULL," +
@@ -27,29 +26,47 @@ public class InitializeDatabase {
                 "typeOfService int," + /*si 0=offered; si 1=provided*/
                 "status int" + /*si 0=en attente; si 1=validé; si 2=réalisé*/
                 ");";
-        return createService;
     }
 
     public static String createTablePatient() {   /*table patient*/
-        String createPatient = "create table if not exists patient (" +
+        return "create table if not exists patient (" +
                 "idPatient int," +
                 "foreign key (idPatient) references user(idUser) ON DELETE CASCADE );";
-        return createPatient;
     }
 
     public static String createTableVolunteer() {   /*table volunteer*/
-        String createVolunteer = "create table if not exists volunteer (" +
+        return "create table if not exists volunteer (" +
                 "idVolunteer int," +
                 "foreign key (idVolunteer) references user(idUser) ON DELETE CASCADE );";
-        return createVolunteer;
     }
 
     public static String createTableGuarantor() {   /*table guanrantor*/
-        String createGuarantor = "create table if not exists guarantor (" +
+        return "create table if not exists guarantor (" +
                 "idGuarantor int," +
                 "foreign key (idGuarantor) references user(idUser) ON DELETE CASCADE );";
-        return createGuarantor;
     }
+
+    public static String dropTableUser() {
+        return "drop table user;";
+    }
+
+    public static String dropTableService() {
+        return "drop table service;";
+    }
+
+    public static String dropTablePatient() {
+        return "drop table patient;";
+    }
+
+    public static String dropTableGuarantor() {
+        return "drop table guarantor;";
+    }
+
+    public static String dropTableVolunteer() {
+        return "drop table volunteer;";
+    }
+
+
 
 }
 
