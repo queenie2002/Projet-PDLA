@@ -46,8 +46,7 @@ public class NewUser {
             database.disconnectToDatabase(conn);
 
         } else {
-            System.out.println("user id: " + user.getId());
-            System.out.println("error: there is already a user with same id (dans NewUser)");
+            System.out.println("error: there is already a user with same id (dans NewUser)");  //potentially, we could create a frame that showss this and redoes the process i guess
         }
 
     }
@@ -58,5 +57,7 @@ public class NewUser {
         AddNewUser(user1);
         User user2 = new User("Volunteer", "Nguyen", 1, "pwd", "2002-03-25");
         AddNewUser(user2);
+        User user3 = new User("Volunteer", "Nguyen", 2, "pwd", "2002-03-25");
+        AddNewUser(user3);
     }
 }

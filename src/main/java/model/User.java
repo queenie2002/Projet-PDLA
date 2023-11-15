@@ -5,7 +5,7 @@ public class User{
     private static int idUser=0;
     private String firstName;
     private String lastName;
-    private int type; /* patient 0, volunteer 1, guarantoe 2 ecrit qq part*/
+    private int type; /* patient 0, volunteer 1, guarantor 2 ecrit qq part*/
     private String password; 
     private String dateOfBirth;
     
