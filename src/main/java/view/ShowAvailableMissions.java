@@ -2,6 +2,8 @@ package view;
 
 import controller.UseDatabase;
 
+import javax.swing.*;
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
@@ -18,6 +20,11 @@ public class ShowAvailableMissions {
         ResultSet res = database.doQueryDatabase(conn, findType);
 
         /*show available missions*/
+        JFrame frame = new JFrame("Frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel emptyLabel = new JLabel("Available Missions", JLabel.CENTER);
+        emptyLabel.setPreferredSize(new Dimension(175, 100));
+        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
 
     }
