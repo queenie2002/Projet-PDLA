@@ -7,23 +7,33 @@ import java.awt.event.ActionListener;
 
 public class SignUpOrLogIn  {
 
-    public SignUpOrLogIn(int idUser) {
+    public SignUpOrLogIn() {
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
+        JLabel emptyLabel = new JLabel("Welcome To The App", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-        JButton button1 = new JButton("Show past missions");
-        JButton button2 = new JButton("Add new mission");
+        JButton button1 = new JButton("Sign Up");
+        JButton button2 = new JButton("Log In");
+
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SignUp signup = new SignUp();
+                frame.dispose();
+            }
+        });
+
 
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                NewMissionPatient tabNewMission = new NewMissionPatient(idUser);
+                Login login = new Login();
                 frame.dispose();
             }
         });
