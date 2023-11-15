@@ -51,14 +51,13 @@ public class ShowIdUser  {
                         throw new RuntimeException(ex);
                     }
                 }
-                if (userType == 1000) {
-                    System.out.println("problem with finding the user in the database");
-                } else if (userType == 0) {
+                if (userType == 0) {
                     MissionTabPatient tabPatient = new MissionTabPatient(newId);
                 } else if (userType == 1) {
                     MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(newId);
+                } else {
+                    System.out.println("problem with finding the user in the database");
                 }
-
 
             }
         });

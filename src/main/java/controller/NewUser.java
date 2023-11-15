@@ -52,11 +52,11 @@ public class NewUser {
 
 
     public static void main(String[] args) throws SQLException {
-        User user1 = new User("Patient", "Nguyen", 0, "pwd", "2002-03-25");
+        User user1 = new User("Patient", "Nguyen", 0, "pwd1", "2002-03-25");
         AddNewUser(user1);
-        User user2 = new User("Volunteer", "Nguyen", 1, "pwd", "2002-03-25");
+        User user2 = new User("Volunteer", "Nguyen", 1, "pwd2", "2002-03-25");
         AddNewUser(user2);
-        User user3 = new User("Volunteer", "Nguyen", 2, "pwd", "2002-03-25");
+        User user3 = new User("Guarantor", "Nguyen", 2, "pwd3", "2002-03-25");
         AddNewUser(user3);
     }
 }

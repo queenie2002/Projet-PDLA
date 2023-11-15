@@ -19,6 +19,9 @@ public class Login {
     public  Login() {
         jtFields[0] = new JTextField();
         jtFields[1] = new JTextField();
+        // Create and set up the window
+        JFrame frame = new JFrame("Frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton button_login = new JButton("login");
         button_login.addActionListener(new ActionListener() {
@@ -35,7 +38,7 @@ public class Login {
                 String stringSql = "select idUser, password from user where idUser = " + idUser + ";";
                 ResultSet res = database.doQueryDatabase(conn, stringSql); //nous renvoie idUser et password
 
-                String idUserDatabase = "";
+                int idUserDatabase = 50000;
                 String passwordDatabase = "";
 
                 while (true) {
@@ -45,26 +48,46 @@ public class Login {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        idUserDatabase = res.getString("idUser");
+                        idUserDatabase = res.getInt("idUser");
                         passwordDatabase = res.getString("password");
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
 
-                if (Objects.equals(idUserDatabase, idUser) && Objects.equals(passwordDatabase, password)) {
+                if ((idUserDatabase == Integer.parseInt(idUser)) && Objects.equals(passwordDatabase, password)) {
+                    //accéder à la database pour récupérer le type du user pour savoir si c'est un Patient ou un Volunteer
+                    /*connection*/
 
+                    String findType = "select * from user where idUser = "+idUser;
+                    ResultSet res1 = database.doQueryDatabase(conn, findType);
+                    int userType=1000 ;
+                    while (true) {
+                        try {
+                            if (!res1.next()) break;
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        try {
+                            userType = res1.getInt("type");
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                    if (userType == 0) {
+                        MissionTabPatient tabPatient = new MissionTabPatient(idUserDatabase);
+
+                    } else if (userType == 1) {
+                        MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(idUserDatabase);
+                    } else {
+                        System.out.println("problem with finding the user in the database");
+                    }
+                    frame.dispose();
                 }
-
-
-
-
             }
         });
 
-        // Create and set up the window
-        JFrame frame = new JFrame("Frame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
