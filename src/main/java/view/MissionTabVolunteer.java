@@ -2,9 +2,11 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MissionTabVolunteer {
-    private static void createAndShowGUI () {
+    public MissionTabVolunteer (int idUser) {
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -17,6 +19,14 @@ public class MissionTabVolunteer {
         JButton button1 = new JButton("Show past missions");
         JButton button2 = new JButton("Add new mission");
         JButton button3 = new JButton("Available missions");
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ShowAvailableMissions availableMissions = new ShowAvailableMissions(idUser);
+                frame.dispose();
+            }
+        });
 
         panel.add(button1);
         panel.add(button2);
@@ -34,12 +44,6 @@ public class MissionTabVolunteer {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
+
 }
 
