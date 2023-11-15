@@ -18,8 +18,8 @@ public class Service{
         this.idVolunteer = idVolunteer;
         this.location=location;
         this.description=description;
-        this.typeOfService=typeOfService;
-        this.status=0;
+        this.typeOfService=typeOfService;  /*si 0=en attente; si 1=validé; si 2=réalisé*/
+        this.status=0; /*si 0=offered; si 1=provided*/
     } 
 
     //METHODS
