@@ -20,6 +20,14 @@ public class MissionTabPatient  {
         JButton button1 = new JButton("Show past missions");
         JButton button2 = new JButton("Add new mission");
 
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                NewMissionPatient tabNewMission = new NewMissionPatient(idUser);
+                frame.dispose();
+            }
+        });
+
         panel.add(button1);
         panel.add(button2);
 
