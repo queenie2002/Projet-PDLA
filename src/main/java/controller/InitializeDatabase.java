@@ -48,32 +48,6 @@ public class InitializeDatabase {
         return createGuarantor;
     }
 
-
-    /*public String insertTableUser(int idUser, String firstName, String lastName, int type, String password, String dateOfBirth) {
-        String insertSql = "INSERT INTO user (idUser, firstName, lastName, type, password, dateOfBirth) VALUES (" + String.valueOf(idUser) + ",'" + firstName + "','" + lastName + "'," + String.valueOf(type) + ",'" + password + "','" + dateOfBirth + "') ;";
-        return insertSql;
-    }*/
-
-    /*public String insertTableService(int idService, int idUser, String location, String description, int typeOfService, int status) {
-        String insertSql = "INSERT INTO service (idService, idUser, location, description, typeOfService, status) VALUES (" + String.valueOf(idService)+ "," + String.valueOf(idUser) + ", '" + location + "' , '" + description + "' ," + String.valueOf(typeOfService) + "," + String.valueOf(status) + ");";
-        return insertSql;
-    }
-    public String insertTablePatient (int idPatient){
-        String insertSql = "INSERT INTO patient (idPatient) VALUES (" + String.valueOf(idPatient) + ");";
-        return insertSql;
-    } 
-    
-    public String insertTableVolunteer (int idVolunteer){
-        String insertSql = "INSERT INTO volunteer (idVolunteer) VALUES (" + String.valueOf(idVolunteer) + ");";
-        return insertSql;
-    }
-    
-    public String insertTableGuarantor(int idGuarantor){
-        String insertSql = "INSERT INTO guarantor (idGuarantor) VALUES (" + String.valueOf(idGuarantor) + ");";
-        return insertSql;
-    } */
-
-
 }
 
 

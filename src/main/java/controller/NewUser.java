@@ -10,6 +10,7 @@ public class NewUser {
 
     /*METHODS*/
     public static void AddNewUser(User user) throws SQLException {
+
         /*connection*/
         UseDatabase database = new UseDatabase();
         Connection conn;
@@ -17,24 +18,20 @@ public class NewUser {
 
 
         /*check if user exists already*/
-
         String existsSql = "select exists (select * FROM user WHERE idUser = 1);";
-        ResultSet res = database.doQueryDatabase(conn, existsSql); //nous renvoie 1 s'il existe un user avec mm id
-        int userExists = 0; //on initialise pour qu'il soit content but not supposed to
+        ResultSet res = database.doQueryDatabase(conn, existsSql); //nous renvoie 1 s'il existe un user with same id
+        int userExists = 0;
 
         while (res.next()) {
             userExists = res.getInt(1);
             System.out.println(res);
         }
 
-        System.out.println(res);
-        if (userExists == 0) {
-
+        if (userExists == 0) { //means that the user doesn't exist
 
             /*insertion into user*/
             String insertSql = "INSERT INTO user (idUser, firstName, lastName, type, password, dateOfBirth) VALUES (" + String.valueOf(user.getId()) + ",'" + user.getFirstName() + "','" + user.getLastName() + "'," + String.valueOf(user.getType()) + ",'" + user.getPassword() + "','" + user.getDateOfBirth() + "') ;";
             database.doStatementDatabase(conn, insertSql);
-
 
             if (user.getType() == 0) {
                 String insertSql1 = "INSERT INTO patient (idPatient) VALUES (" + String.valueOf(user.getId()) + ")  ;";
