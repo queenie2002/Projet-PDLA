@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class MissionTabVolunteer {
     public MissionTabVolunteer (int idUser) {
@@ -23,7 +24,11 @@ public class MissionTabVolunteer {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ShowAvailableMissions availableMissions = new ShowAvailableMissions(idUser);
+                try {
+                    ShowAvailableMissions availableMissions = new ShowAvailableMissions(idUser);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 frame.dispose();
             }
         });
