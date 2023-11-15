@@ -17,15 +17,13 @@ public class NewUser {
 
 
         /*check if user exists already*/
-        String existsSql = "select exists (select * FROM user WHERE idUser = 1);";
+        String existsSql = "select exists (select * FROM user WHERE idUser = " + String.valueOf(user.getId()) + ");";
         ResultSet res = database.doQueryDatabase(conn, existsSql); //nous renvoie 1 s'il existe un user with same id
         int userExists = 0;
 
         while (res.next()) {
             userExists = res.getInt(1);
         }
-
-        System.out.print("user id: " + user.getId());
 
         if (userExists == 0) { //means that the user doesn't exist
 
@@ -48,8 +46,8 @@ public class NewUser {
             database.disconnectToDatabase(conn);
 
         } else {
-            System.out.print("user id: " + user.getId());
-            System.out.print("error: there is already a user with same id (dans NewUser)");
+            System.out.println("user id: " + user.getId());
+            System.out.println("error: there is already a user with same id (dans NewUser)");
         }
 
     }

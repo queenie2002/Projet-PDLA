@@ -3,14 +3,9 @@ Lio0Uhah
 use projet_gei_002;
 
 
-
-PROBLEM DOESNT DELETE PROPERLY when i delete user doesn't inherit delete cascade
 delete from user where idUser = 1;
 delete from volunteer where idVolunteer = 1;
 delete from patient where idPatient = 1;
-
-PROBLEM with newuser dit que existe deja alors que non
-
 
 
 HOW IT WORKS
