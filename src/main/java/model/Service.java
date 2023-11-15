@@ -19,7 +19,7 @@ public class Service{
         this.location=location;
         this.description=description;
         this.typeOfService=typeOfService;
-        this.status=status;
+        this.status=0;
     } 
 
     //METHODS

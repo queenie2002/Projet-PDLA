@@ -24,25 +24,7 @@ public class ActualApp  {
                         INITIALIZING
         ***********************************************/
 
-        UseDatabase database = new UseDatabase();
-        Connection conn;
-        conn = database.connectToDatabase();
-
-        //we drop all the tables
-        database.doStatementDatabase(conn,InitializeDatabase.dropTableGuarantor());
-        database.doStatementDatabase(conn,InitializeDatabase.dropTableVolunteer());
-        database.doStatementDatabase(conn,InitializeDatabase.dropTablePatient());
-        database.doStatementDatabase(conn,InitializeDatabase.dropTableUser());
-        database.doStatementDatabase(conn,InitializeDatabase.dropTableService());
-
-
-
-        database.doStatementDatabase(conn,InitializeDatabase.createTableUser());
-        database.doStatementDatabase(conn,InitializeDatabase.createTableVolunteer());
-        database.doStatementDatabase(conn,InitializeDatabase.createTablePatient());
-        database.doStatementDatabase(conn,InitializeDatabase.createTableGuarantor());
-        database.doStatementDatabase(conn,InitializeDatabase.createTableService());
-        database.disconnectToDatabase(conn);
+        InitializeDatabase.Initialize();
 
         /**********************************************
                      STARTING PROGRAM

@@ -1,6 +1,8 @@
 package controller;
 
 
+import java.sql.Connection;
+
 public class InitializeDatabase {
 
 
@@ -66,7 +68,26 @@ public class InitializeDatabase {
         return "drop table volunteer;";
     }
 
+    public static void Initialize() {
+        UseDatabase database = new UseDatabase();
+        Connection conn;
+        conn = database.connectToDatabase();
 
+        //we drop all the tables
+        database.doStatementDatabase(conn,dropTableGuarantor());
+        database.doStatementDatabase(conn,dropTableVolunteer());
+        database.doStatementDatabase(conn,dropTablePatient());
+        database.doStatementDatabase(conn,dropTableUser());
+        database.doStatementDatabase(conn,dropTableService());
+
+        //we create all tables
+        database.doStatementDatabase(conn,createTableUser());
+        database.doStatementDatabase(conn,createTableVolunteer());
+        database.doStatementDatabase(conn,createTablePatient());
+        database.doStatementDatabase(conn,createTableGuarantor());
+        database.doStatementDatabase(conn,createTableService());
+        database.disconnectToDatabase(conn);
+    }
 
 }
 

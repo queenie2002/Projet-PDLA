@@ -30,3 +30,9 @@ database.doStatementDatabase(conn,insertSql);
 database.disconnectToDatabase(conn);
 
 
+
+
+QUAND ON A PROBLEME GIT QUON A ECRIT DANS LE MEME FICHIER
+fetch
+stash/commit (faut enregistrer les changements: stash c'est si je veux pas garder ce que j'ai fait (maybe??) et commit si je veux potentiellement garder ce que j'ai fait (maybe?)
+merge
