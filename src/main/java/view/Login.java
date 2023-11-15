@@ -1,25 +1,22 @@
 package view;
+import controller.UseDatabase;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.function.Consumer;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Objects;
 
 public class Login {
-    private static Consumer<String[]> credentialsCallback;
-
-    public static void setCredentialsCallback(Consumer<String[]> callback) {
-        credentialsCallback = callback;
-    }
 
     private JTextField[] jtFields = new JTextField[2];
 
-    public Login() {
-        // Initialize the GUI components
-        createAndShowGUI();
-    }
 
-    private void createAndShowGUI() {
+
+    public  Login() {
         jtFields[0] = new JTextField();
         jtFields[1] = new JTextField();
 
@@ -27,15 +24,41 @@ public class Login {
         button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = getIdUser();
+                String idUser = getIdUser();
                 String password = getPassword();
 
-                // Set the credentials in the UserCredentialsManager
-                UserCredentialsManager.setCredentials(username, password);
+                UseDatabase database = new UseDatabase();
+                Connection conn;
+                conn = database.connectToDatabase();
 
-                if (credentialsCallback != null) {
-                    credentialsCallback.accept(new String[]{username, password});
+                /*asks for password and user*/
+                String stringSql = "select idUser, password from user where idUser = " + idUser + ";";
+                ResultSet res = database.doQueryDatabase(conn, stringSql); //nous renvoie idUser et password
+
+                String idUserDatabase = "";
+                String passwordDatabase = "";
+
+                while (true) {
+                    try {
+                        if (!res.next()) break;
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        idUserDatabase = res.getString("idUser");
+                        passwordDatabase = res.getString("password");
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
+
+                if (Objects.equals(idUserDatabase, idUser) && Objects.equals(passwordDatabase, password)) {
+
+                }
+
+
+
+
             }
         });
 
