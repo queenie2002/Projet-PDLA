@@ -24,11 +24,7 @@ public class MissionTabVolunteer {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                try {
-                    ShowAvailableMissions availableMissions = new ShowAvailableMissions(idUser);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+                ShowAvailableMissions availableMissions = new ShowAvailableMissions(idUser);
                 frame.dispose();
             }
         });

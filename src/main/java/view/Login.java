@@ -21,6 +21,7 @@ public class Login {
         // Create and set up the window
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
 
         JButton button_login = new JButton("Login");
         JButton button_prev = new JButton("Previous");
@@ -110,7 +111,6 @@ public class Login {
         p1.add(button_prev);
         p1.add(button_login);
 
-        //p1.setBounds(300, 200, 100, 50);
         frame.add(p);
         frame.add(p1);
 

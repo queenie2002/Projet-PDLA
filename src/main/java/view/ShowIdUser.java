@@ -17,7 +17,7 @@ public class ShowIdUser  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel emptyLabel = new JLabel("ID USER", JLabel.CENTER);
-        JLabel textLabel = new JLabel("your id user is : "+ newId, JLabel.CENTER);
+        JLabel textLabel = new JLabel("your id user is : "+ newId , JLabel.CENTER);
 
 
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
@@ -47,6 +47,7 @@ public class ShowIdUser  {
                     }
                     try {
                         userType = res.getInt("type");
+                        System.out.println(userType);
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }

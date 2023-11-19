@@ -18,10 +18,12 @@ public class NewMissionPatient {
         jtFields[1] = new JTextField();
 
 
-        JButton button_signup = new JButton("add new mission");
+        JButton button_newmission = new JButton("add new mission");
+        JButton button_logout = new JButton("Log Out");
+
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        button_signup.addActionListener(new ActionListener() {
+        button_newmission.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String location = getLocation();
@@ -34,12 +36,20 @@ public class NewMissionPatient {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-
+                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
                 frame.dispose();
 
             }
         });
 
+
+        button_logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+                frame.dispose();
+            }
+        });
 
 
 
@@ -55,7 +65,8 @@ public class NewMissionPatient {
 
 
 
-        p.add(button_signup);
+        p.add(button_newmission);
+        p.add(button_logout);
 
         frame.add(p);
         // Make the window's dimension fit its content

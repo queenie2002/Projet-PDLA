@@ -113,13 +113,4 @@ public class SignUp {
     public String getDateOfBirth() {
         return this.jtFields[3].getText();
     }
-
-
-   /*public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }*/
 }
