@@ -12,18 +12,18 @@ import java.util.Objects;
 
 public class Login {
 
-    private JTextField[] jtFields = new JTextField[2];
+    private JTextField jtField = new JTextField();
+    private JPasswordField jpField = new JPasswordField();
 
 
 
     public  Login() {
-        jtFields[0] = new JTextField();
-        jtFields[1] = new JTextField();
         // Create and set up the window
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JButton button_login = new JButton("login");
+        JButton button_login = new JButton("Login");
+        JButton button_prev = new JButton("Previous");
         button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,6 +87,13 @@ public class Login {
             }
         });
 
+        button_prev.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+                frame.dispose();
+            }
+        });
 
 
         JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
@@ -95,12 +102,20 @@ public class Login {
 
         JPanel p = new JPanel(new GridLayout(1, 2));
         p.add(new JLabel("ID user"));
-        p.add(jtFields[0]);
+        p.add(jtField);
         p.add(new JLabel("Password"));
-        p.add(jtFields[1]);
+        p.add(jpField);
 
-        p.add(button_login);
+        JPanel p1 = new JPanel(new GridLayout(1, 2));
+        p1.add(button_prev);
+        p1.add(button_login);
+
+        //p1.setBounds(300, 200, 100, 50);
         frame.add(p);
+        frame.add(p1);
+
+
+
 
         // Make the window's dimension fit its content
         frame.pack();
@@ -109,11 +124,11 @@ public class Login {
     }
 
     public String getIdUser() {
-        return this.jtFields[0].getText();
+        return this.jtField.getText();
     }
 
     public String getPassword() {
-        return this.jtFields[1].getText();
+        return this.jpField.getText();
     }
 
 

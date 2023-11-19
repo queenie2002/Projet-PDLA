@@ -10,7 +10,8 @@ import java.sql.SQLException;
 
 public class SignUp {
 
-  private final JTextField[] jtFields = new JTextField[5];
+  private final JTextField[] jtFields = new JTextField[4];
+  private final JPasswordField jpField = new JPasswordField();
 
 
 
@@ -20,9 +21,10 @@ public class SignUp {
         jtFields[1] = new JTextField();
         jtFields[2] = new JTextField();
         jtFields[3] = new JTextField();
-        jtFields[4] = new JTextField();
 
-        JButton button_signup = new JButton("sign up");
+        JButton button_signup = new JButton("Sign Up");
+        JButton button_prev = new JButton("Previous");
+
         JFrame frame = new JFrame("Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button_signup.addActionListener(new ActionListener() {
@@ -47,6 +49,14 @@ public class SignUp {
             }
         });
 
+        button_prev.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+                frame.dispose();
+            }
+        });
+
 
 
 
@@ -62,16 +72,17 @@ public class SignUp {
         p.add(new JLabel("Patient or Volunteer"));
         p.add(jtFields[2]);
         p.add(new JLabel("New Password"));
-        p.add(jtFields[3]);
+        p.add(jpField);
         p.add(new JLabel("Date of birth"));
-        p.add(jtFields[4]);
+        p.add(jtFields[3]);
 
-
+        p.add(button_prev);
         p.add(button_signup);
 
         frame.add(p);
         // Make the window's dimension fit its content
         frame.pack();
+        frame.setLocationRelativeTo(null);//center frame on screen
         // Display the window.
         frame.setVisible(true);
     }
@@ -84,14 +95,23 @@ public class SignUp {
         return this.jtFields[1].getText();
     }
     public int getType() {
-        return Integer.parseInt(this.jtFields[2].getText());
+        if (this.jtFields[2].getText().equalsIgnoreCase("patient")) { //compares the two and doesn't care about upper and lower case
+            return 0;
+        } else if (this.jtFields[2].getText().equalsIgnoreCase("volunteer")) { //compares the two and doesn't care about upper and lower case
+            return 1;
+        } else if (this.jtFields[2].getText().equalsIgnoreCase("guarantor")) { //compares the two and doesn't care about upper and lower case
+            return 2;
+        } else {
+            System.out.println("error: we didn't give right type (dans SignUp)");
+            return -1;
+        }
     }
 
     public String getPassword() {
-        return this.jtFields[3].getText();
+        return this.jpField.getText();
     }
     public String getDateOfBirth() {
-        return this.jtFields[4].getText();
+        return this.jtFields[3].getText();
     }
 
 
