@@ -22,6 +22,8 @@ public class ShowAvailableMissions {
         emptyLabel.setPreferredSize(new Dimension(175, 100));
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
+        JPanel panelLogout = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
         try {
             /*connect to database and get all the services that have a status equal to 0*/
             UseDatabase database = new UseDatabase();
@@ -72,8 +74,9 @@ public class ShowAvailableMissions {
                     p.add(infoPanel, BorderLayout.CENTER);
 
 
-                    JButton button = new JButton("Accept");
-                    button.addActionListener(new ActionListener() {
+                    JButton button_accept = new JButton("Accept");
+
+                    button_accept.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent actionEvent) {
                             Connection finalConn = null;
@@ -105,13 +108,37 @@ public class ShowAvailableMissions {
                         }
                     });
 
-                    p.add(button, BorderLayout.SOUTH);
+
+                    p.add(button_accept, BorderLayout.SOUTH);
                     frame.add(p);
+
 
                     iter++;
                 }
+                JButton button_logout = new JButton("Log Out");
+                JButton button_previous = new JButton("Previous");
+                button_logout.setPreferredSize(new Dimension(100, 30));
+                panelLogout.add(button_logout, BorderLayout.SOUTH);
+                button_logout.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent actionEvent) {
+                        SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+                        frame.dispose();
+                    }
+                });
 
+                button_previous.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent actionEvent) {
+                        MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(idUser);
+                        frame.dispose();
+                    }
+                });
 
+                panelLogout.add(button_previous);
+                frame.add(panelLogout);
+
+                frame.setLocationRelativeTo(null); // Center the frame on the screen
                 /*show available missions*/
                 // Make the window's dimension fit its content
                 frame.pack();
