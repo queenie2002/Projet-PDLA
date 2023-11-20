@@ -18,7 +18,7 @@ public class NewMissionPatient {
         jtFields[1] = new JTextField();
 
 
-        JButton button_newmission = new JButton("add new mission");
+        JButton button_newmission = new JButton("Add New Mission");
         JButton button_logout = new JButton("Log Out");
 
         JFrame frame = new JFrame("Frame");
@@ -71,6 +71,7 @@ public class NewMissionPatient {
         frame.add(p);
         // Make the window's dimension fit its content
         frame.pack();
+        frame.setLocationRelativeTo(null);//center frame on screen
         // Display the window.
         frame.setVisible(true);
     }

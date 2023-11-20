@@ -17,8 +17,18 @@ public class MissionTabPatient  {
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-        JButton button1 = new JButton("Show past missions");
-        JButton button2 = new JButton("Add new mission");
+        JButton button1 = new JButton("Show Past Missions");
+        JButton button2 = new JButton("Add New Mission");
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+                //SHOW PAST MISSIONS
+                frame.dispose();
+            }
+        });
+
 
         button2.addActionListener(new ActionListener() {
             @Override

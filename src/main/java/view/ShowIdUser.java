@@ -17,7 +17,7 @@ public class ShowIdUser  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel emptyLabel = new JLabel("ID USER", JLabel.CENTER);
-        JLabel textLabel = new JLabel("your id user is : "+ newId , JLabel.CENTER);
+        JLabel textLabel = new JLabel("Your user ID is : "+ newId , JLabel.CENTER);
 
 
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
@@ -65,15 +65,9 @@ public class ShowIdUser  {
 
         panel.add(button);
         frame.getContentPane().add(panel, BorderLayout.PAGE_END);
+        frame.setLocationRelativeTo(null);//center frame on screen
 
         frame.setSize(300, 200);
         frame.setVisible(true);
     }
-    /*public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }*/
 }
