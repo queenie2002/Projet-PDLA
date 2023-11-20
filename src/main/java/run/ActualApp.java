@@ -33,7 +33,6 @@ public class ActualApp  {
 
 
         SignUpOrLogIn signuporlogin1 = new SignUpOrLogIn();
-        MissionTabPatient sth = new MissionTabPatient();
 
 
 
