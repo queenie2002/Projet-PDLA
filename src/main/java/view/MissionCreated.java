@@ -6,7 +6,7 @@ import java.awt.*;
 public class MissionCreated {
     public MissionCreated() {
         JFrame frame = new JFrame("Frame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new FlowLayout());
         /*label that shows that a mission was created (by clicking on button create)*/
         JLabel emptyLabel = new JLabel("Mission Created", JLabel.CENTER);

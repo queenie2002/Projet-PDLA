@@ -41,6 +41,24 @@ public class MissionTabPatient  {
         panel.add(button1);
         panel.add(button2);
 
+        JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        JButton button3 = new JButton("Log Out");
+
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+                frame.dispose();
+            }
+        });
+        panel1.add(button3);
+        panel1.setBounds(300, 200, 100, 50);
+        frame.add(panel1);
+
+
+
         frame.getContentPane().setLayout(null); // Manually position the panel
 
         // Set the panel's position and size
@@ -52,6 +70,12 @@ public class MissionTabPatient  {
         frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.setVisible(true);
     }
+
+    public static void main(String[] args){
+        MissionTabPatient signuporlogin1 = new MissionTabPatient(1);
+    }
+
+
 
 
 }

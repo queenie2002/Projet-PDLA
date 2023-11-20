@@ -16,7 +16,7 @@ public class NewMissionPatient {
         jtFields[1] = new JTextField();
 
 
-        JButton button_newmission = new JButton("Add New Mission");
+        JButton button_newmission = new JButton("Add");
         JButton button_logout = new JButton("Log Out");
 
         JFrame frame = new JFrame("Frame");
@@ -35,7 +35,7 @@ public class NewMissionPatient {
                     throw new RuntimeException(ex);
                 }
                 MissionCreated missioncreated = new MissionCreated();
-
+                MissionTabVolunteer missiontabvolunteer = new MissionTabVolunteer(idUser);
                 frame.dispose();
 
             }
@@ -82,12 +82,5 @@ public class NewMissionPatient {
     public String getDescription() {
         return this.jtFields[1].getText();
     }
-
-    public static void main(String[] args){
-
-        NewMissionPatient signuporlogin1 = new NewMissionPatient(1);
-    }
-
-
 
 }

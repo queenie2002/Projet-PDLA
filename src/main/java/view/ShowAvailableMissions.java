@@ -154,4 +154,9 @@ public class ShowAvailableMissions {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args){
+
+        ShowAvailableMissions signuporlogin1 = new ShowAvailableMissions(1);
+    }
 }
