@@ -16,11 +16,16 @@ public class MissionTabVolunteer {
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel panelLogout = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         JButton button1 = new JButton("Show past missions");
         JButton button2 = new JButton("Add new mission");
         JButton button3 = new JButton("Available missions");
+        JButton button_logout = new JButton("Log Out");
+        button_logout.setPreferredSize(new Dimension(100, 30));
+        panelLogout.add(button_logout, BorderLayout.SOUTH);
 
+        /*show available mission*/
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -28,19 +33,28 @@ public class MissionTabVolunteer {
                 frame.dispose();
             }
         });
+        /*logout*/
+        button_logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+                frame.dispose();
+            }
+        });
+
+        panel.setBounds(50, 100, 200, 100);
 
         panel.add(button1);
         panel.add(button2);
         panel.add(button3);
+        panelLogout.add(button_logout);
 
-        frame.getContentPane().setLayout(null); // Manually position the panel
-
-        // Set the panel's position and size
-        panel.setBounds(100, 100, 200, 100);
-
+        frame.setLayout(new BorderLayout());
         frame.add(panel);
+        frame.add(panelLogout, BorderLayout.SOUTH);
 
-        frame.setSize(400, 300);
+
+        frame.setSize(200, 300);
         frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.setVisible(true);
     }

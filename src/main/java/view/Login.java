@@ -101,7 +101,7 @@ public class Login {
         emptyLabel.setPreferredSize(new Dimension(175, 100));
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
-        JPanel p = new JPanel(new GridLayout(1, 2));
+        JPanel p = new JPanel(new GridLayout(2, 1));
         p.add(new JLabel("ID user"));
         p.add(jtField);
         p.add(new JLabel("Password"));
@@ -111,14 +111,15 @@ public class Login {
         p1.add(button_prev);
         p1.add(button_login);
 
+        frame.setLayout(new GridLayout(3, 1));
+        frame.add(emptyLabel, BorderLayout.PAGE_START);
         frame.add(p);
         frame.add(p1);
 
-
-
-
         // Make the window's dimension fit its content
         frame.pack();
+        // Center the frame on the screen
+        frame.setLocationRelativeTo(null);  // Center the frame on the screen
         // Display the window.
         frame.setVisible(true);
     }
