@@ -23,8 +23,7 @@ public class ShowAvailableMissions {
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
         try {
-            /*se connecter a la database et recupérer tous les services qui ont status=0*/
-            /*connection*/
+            /*connect to database and get all the services that have a status equal to 0*/
             UseDatabase database = new UseDatabase();
             Connection conn = null;
 
@@ -61,17 +60,15 @@ public class ShowAvailableMissions {
 
                     JPanel p = new JPanel(new BorderLayout());
 
-                    // Add mission number to the NORTH
                     p.add(new JLabel("Mission n°" + idService), BorderLayout.NORTH);
 
-                    // Create a new panel for location and description
+                    // New panel for location and description
                     JPanel infoPanel = new JPanel(new GridLayout(2, 2));
                     infoPanel.add(new JLabel("Location:"));
                     infoPanel.add(new JLabel(location));
                     infoPanel.add(new JLabel("Description:"));
                     infoPanel.add(new JLabel(description));
 
-                    // Add the infoPanel to the CENTER
                     p.add(infoPanel, BorderLayout.CENTER);
 
 
@@ -93,25 +90,23 @@ public class ShowAvailableMissions {
                                 // Close the connection
                                 database.disconnectToDatabase(finalConn);
 
-                                // Dispose of the frame or perform any other necessary actions
+                                // Show message : Mission Accepted
+                                MissionAccepted message = new MissionAccepted();
+
                                 frame.dispose();
                             } finally {
-                                // Make sure to close the connection in case of an exception
                                 if (finalConn != null) {
                                     try {
                                         finalConn.close();
                                     } catch (SQLException e) {
-                                        e.printStackTrace(); // Handle the exception appropriately in your application
+                                        e.printStackTrace();
                                     }
                                 }
                             }
                         }
                     });
 
-                    // Add the button to the SOUTH
                     p.add(button, BorderLayout.SOUTH);
-
-                    // Add the main panel to the frame
                     frame.add(p);
 
                     iter++;
@@ -130,7 +125,7 @@ public class ShowAvailableMissions {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception appropriately in your application
+            e.printStackTrace();
         }
     }
 }
