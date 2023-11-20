@@ -3,28 +3,39 @@ package controller;
 
 import java.sql.Connection;
 
+/*
+to initialize the database
+we have the methods to create and drop the tables
+
+first, we drop them to create them anew with no past information
+*/
+
 public class InitializeDatabase {
 
+    //METHODS
 
-    public static String createTableUser() {   /*table person*/
+    //to create a user table
+    public static String createTableUser() { 
         return "create table if not exists user (" +
-                "idUser int primary key," +
+                "idUser int primary key," +    //idUser is primary key because that's the identifier we'll use to get back the other informations
                 "firstName VARCHAR(20)," +
                 "lastName VARCHAR(20)," +
-                "type int," + /*si 0=patient; si 1=volunteer; si 2=guarantor*/
+                "type int," + 
                 "password VARCHAR(20)," +
-                "dateOfBirth date" +  /*year month date*/
+                "dateOfBirth date" +           //needs a birthday under format YYYY-MM-DD
                 ");";
     }
 
-
-    public static String createTableService() { /*table service*/
+    //to create a service table
+    public static String createTableService() {
         return "create table if not exists service (" +
-                "idService int primary key," +
-                "idPatient int references user(idUser) ON DELETE CASCADE," +
-                "idVolunteer int references user(idUser) ON DELETE SET NULL," +
+                "idService int primary key," +    //idService is primary key because that's the identifier we'll use to get back the other informations
+                "idPatient int references user(idUser) ON DELETE SET NULL," +    //idPatient references idUser of a user, if the user with idUser is deleted, we put idPatient to null
+                                                                                 //if it was offered by patient, we manually delete the service    
+                "idVolunteer int references user(idUser) ON DELETE SET NULL," +  //idVolunteer references idUser of a user, if the user with idUser is deleted, we put idVolunteer to null
+                                                                                 //if it was provided by idVolunteer, we manually delete the service   
                 "location VARCHAR(20)," +
-                "description VARCHAR(255)," +
+                "description VARCHAR(255)," +    
                 "typeOfService int," + /*si 0=offered; si 1=provided*/
                 "status int" + /*si 0=en attente; si 1=validé; si 2=réalisé*/
                 ");";
