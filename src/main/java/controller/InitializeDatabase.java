@@ -36,62 +36,72 @@ public class InitializeDatabase {
                                                                                  //if it was provided by idVolunteer, we manually delete the service   
                 "location VARCHAR(20)," +
                 "description VARCHAR(255)," +    
-                "typeOfService int," + /*si 0=offered; si 1=provided*/
-                "status int" + /*si 0=en attente; si 1=validé; si 2=réalisé*/
+                "typeOfService int," + 
+                "status int" +
                 ");";
     }
 
-    public static String createTablePatient() {   /*table patient*/
+    //to create a patient table
+    public static String createTablePatient() {   
         return "create table if not exists patient (" +
                 "idPatient int," +
-                "foreign key (idPatient) references user(idUser) ON DELETE CASCADE );";
+                "foreign key (idPatient) references user(idUser) ON DELETE CASCADE );"; //idPatient references idUser of a user, if the user with idUser is deleted, we delete the patient                                            
     }
 
-    public static String createTableVolunteer() {   /*table volunteer*/
+    //to create a volunteer table
+    public static String createTableVolunteer() {   
         return "create table if not exists volunteer (" +
                 "idVolunteer int," +
-                "foreign key (idVolunteer) references user(idUser) ON DELETE CASCADE );";
+                "foreign key (idVolunteer) references user(idUser) ON DELETE CASCADE );"; //idVolunteer references idUser of a user, if the user with idUser is deleted, we delete the volunteer                                            
     }
 
-    public static String createTableGuarantor() {   /*table guanrantor*/
+    //to create a guarantor table
+    public static String createTableGuarantor() {   
         return "create table if not exists guarantor (" +
                 "idGuarantor int," +
-                "foreign key (idGuarantor) references user(idUser) ON DELETE CASCADE );";
+                "foreign key (idGuarantor) references user(idUser) ON DELETE CASCADE );"; //idGuarantor references idUser of a user, if the user with idUser is deleted, we delete the guarantor          
     }
 
+    //to drop user table
     public static String dropTableUser() {
         return "drop table user;";
     }
 
+    //to drop service table
     public static String dropTableService() {
         return "drop table service;";
     }
 
+    //to drop patient table
     public static String dropTablePatient() {
         return "drop table patient;";
     }
 
+    //to drop guarantor table
     public static String dropTableGuarantor() {
         return "drop table guarantor;";
     }
 
+    //to drop volunteer table
     public static String dropTableVolunteer() {
         return "drop table volunteer;";
     }
 
+    //we want a new, empty database so we recreate all the tables
     public static void Initialize() {
+        //connection
         UseDatabase database = new UseDatabase();
         Connection conn;
         conn = database.connectToDatabase();
 
-        //we drop all the tables
+        //drop all the tables
         database.doStatementDatabase(conn,dropTableGuarantor());
         database.doStatementDatabase(conn,dropTableVolunteer());
         database.doStatementDatabase(conn,dropTablePatient());
         database.doStatementDatabase(conn,dropTableUser());
         database.doStatementDatabase(conn,dropTableService());
 
-        //we create all tables
+        //create all tables
         database.doStatementDatabase(conn,createTableUser());
         database.doStatementDatabase(conn,createTableVolunteer());
         database.doStatementDatabase(conn,createTablePatient());
