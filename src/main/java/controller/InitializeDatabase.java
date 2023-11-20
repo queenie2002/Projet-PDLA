@@ -32,8 +32,10 @@ public class InitializeDatabase {
                 "idService int primary key," +    //idService is primary key because that's the identifier we'll use to get back the other informations
                 "idPatient int references user(idUser) ON DELETE SET NULL," +    //idPatient references idUser of a user, if the user with idUser is deleted, we put idPatient to null
                                                                                  //if it was offered by patient, we manually delete the service    
+                                                                                 //if no patient has been assigned yet, it's 0
                 "idVolunteer int references user(idUser) ON DELETE SET NULL," +  //idVolunteer references idUser of a user, if the user with idUser is deleted, we put idVolunteer to null
-                                                                                 //if it was provided by idVolunteer, we manually delete the service   
+                                                                                 //if it was provided by idVolunteer, we manually delete the service
+                                                                                 //if no volunteer has been assigned yet, it's 0
                 "location VARCHAR(20)," +
                 "description VARCHAR(255)," +    
                 "typeOfService int," + 

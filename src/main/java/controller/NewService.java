@@ -24,7 +24,6 @@ public class NewService {
             serviceExists = res.getInt(1);
         }
 
-        //----------------------------------------------------------------------------------------------A FAIRE we set idVolunteer to NULL at first and handle typeservice
         if (serviceExists == 0) { //if the service doesn't exist, we create a new service
             
             //insert service into database

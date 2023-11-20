@@ -1,9 +1,7 @@
 package view;
 
 import controller.NewService;
-import controller.NewUser;
 import model.Service;
-import model.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +20,7 @@ public class NewMissionPatient {
         JButton button_logout = new JButton("Log Out");
 
         JFrame frame = new JFrame("Frame");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button_newmission.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,7 +35,7 @@ public class NewMissionPatient {
                     throw new RuntimeException(ex);
                 }
                 MissionCreated missioncreated = new MissionCreated();
-                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+
                 frame.dispose();
 
             }
@@ -47,7 +45,7 @@ public class NewMissionPatient {
         button_logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
                 frame.dispose();
             }
         });
@@ -85,7 +83,10 @@ public class NewMissionPatient {
         return this.jtFields[1].getText();
     }
 
+    public static void main(String[] args){
 
+        NewMissionPatient signuporlogin1 = new NewMissionPatient(1);
+    }
 
 
 
