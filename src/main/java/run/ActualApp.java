@@ -29,9 +29,7 @@ public class ActualApp  {
         /**********************************************
                      STARTING PROGRAM
          ***********************************************/
-        SignUpOrLogIn login1 = new SignUpOrLogIn();
-
-
+        SignUpOrLogIn signuporlogin1 = new SignUpOrLogIn();
 
 
 
