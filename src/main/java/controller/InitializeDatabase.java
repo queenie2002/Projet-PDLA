@@ -89,7 +89,7 @@ public class InitializeDatabase {
 
     //we want a new, empty database so we recreate all the tables
     public static void Initialize() {
-        //connection
+        //connection to the database
         UseDatabase database = new UseDatabase();
         Connection conn;
         conn = database.connectToDatabase();
