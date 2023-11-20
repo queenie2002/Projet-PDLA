@@ -22,7 +22,7 @@ public class NewMissionPatient {
         JButton button_logout = new JButton("Log Out");
 
         JFrame frame = new JFrame("Frame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         button_newmission.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,6 +36,7 @@ public class NewMissionPatient {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+                MissionCreated missioncreated = new MissionCreated();
                 SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
                 frame.dispose();
 

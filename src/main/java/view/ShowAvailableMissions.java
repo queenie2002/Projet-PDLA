@@ -93,7 +93,6 @@ public class ShowAvailableMissions {
                                 // Show message : Mission Accepted
                                 MissionAccepted message = new MissionAccepted();
 
-                                frame.dispose();
                             } finally {
                                 if (finalConn != null) {
                                     try {

@@ -24,13 +24,16 @@ public class ActualApp  {
                         INITIALIZING
         ***********************************************/
 
-        InitializeDatabase.Initialize();
+        //InitializeDatabase.Initialize();
+
 
         /**********************************************
                      STARTING PROGRAM
          ***********************************************/
-        SignUpOrLogIn signuporlogin1 = new SignUpOrLogIn();
 
+
+        SignUpOrLogIn signuporlogin1 = new SignUpOrLogIn();
+        MissionTabPatient sth = new MissionTabPatient();
 
 
 
