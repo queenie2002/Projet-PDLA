@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class MissionTabPatient  {
 
     public MissionTabPatient(int idUser) {
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class MissionAccepted {
     public MissionAccepted() {
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new FlowLayout());
         /*label that shows that a mission was accepted (by clicking on button accept)*/

@@ -25,7 +25,7 @@ public class SignUp {
         JButton button_signup = new JButton("Sign Up");
         JButton button_prev = new JButton("Previous");
 
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button_signup.addActionListener(new ActionListener() {
             @Override

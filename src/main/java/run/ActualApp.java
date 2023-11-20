@@ -24,7 +24,7 @@ public class ActualApp  {
                         INITIALIZING
         ***********************************************/
 
-        //InitializeDatabase.Initialize();
+        InitializeDatabase.Initialize();
 
 
         /**********************************************

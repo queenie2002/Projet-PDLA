@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class SignUpOrLogIn  {
 
     public SignUpOrLogIn() {
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -40,24 +40,11 @@ public class SignUpOrLogIn  {
         panel.add(button2);
 
 
-        /*JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
-
-        JButton button3 = new JButton("Close");
 
 
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                frame.dispose();
-            }
-        });
-        panel1.add(button3);
-        panel1.setBounds(300, 200, 100, 50);
-        frame.add(panel1);
-        */
+       frame.getContentPane().setLayout(null); // Manually position the panel
 
 
-        frame.getContentPane().setLayout(null); // Manually position the panel
 
         // Set the panel's position and size
         panel.setBounds(100, 100, 200, 100);

@@ -13,7 +13,7 @@ public class ShowIdUser  {
     //private int newId;
 
     public ShowIdUser(int newId) {
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel emptyLabel = new JLabel("ID USER", JLabel.CENTER);

@@ -14,7 +14,7 @@ public class ShowAvailableMissions {
 
     public ShowAvailableMissions(int idUser) {
 
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
 

@@ -19,7 +19,7 @@ public class NewMissionPatient {
         JButton button_newmission = new JButton("Add");
         JButton button_logout = new JButton("Log Out");
 
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button_newmission.addActionListener(new ActionListener() {
             @Override
@@ -35,7 +35,7 @@ public class NewMissionPatient {
                     throw new RuntimeException(ex);
                 }
                 MissionCreated missioncreated = new MissionCreated();
-                MissionTabVolunteer missiontabvolunteer = new MissionTabVolunteer(idUser);
+                MissionTabPatient missiontabpatient = new MissionTabPatient(idUser);
                 frame.dispose();
 
             }

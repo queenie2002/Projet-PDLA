@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MissionTabVolunteer {
     public MissionTabVolunteer (int idUser) {
-        JFrame frame = new JFrame("Frame");
+        JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
