@@ -59,7 +59,7 @@ public class MissionTabPatient  {
 
 
 
-        frame.getContentPane().setLayout(null); // Manually position the panel
+        frame.getContentPane().setLayout(null);
 
         // Set the panel's position and size
         panel.setBounds(100, 100, 200, 100);

@@ -37,7 +37,7 @@ public class Login {
 
                 /*asks for password and user*/
                 String stringSql = "select idUser, password from user where idUser = " + idUser + ";";
-                ResultSet res = database.doQueryDatabase(conn, stringSql); //nous renvoie idUser et password
+                ResultSet res = database.doQueryDatabase(conn, stringSql);
 
                 int idUserDatabase = 50000;
                 String passwordDatabase = "";

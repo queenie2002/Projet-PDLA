@@ -29,9 +29,9 @@ public class ShowIdUser  {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // fermer lorsqu'on appuie sur bouton
+                //close frame when we click on button
                 frame.dispose();
-                //accéder à la database pour récupérer le type du user pour savoir si c'est un Patient ou un Volunteer
+                // connect to database to get the type to see if it's a Patient or a Volunteer
                 /*connection*/
                 UseDatabase database = new UseDatabase();
                 Connection conn;

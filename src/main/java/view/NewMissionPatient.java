@@ -18,6 +18,7 @@ public class NewMissionPatient {
 
         JButton button_newmission = new JButton("Add");
         JButton button_logout = new JButton("Log Out");
+        JButton button_prev = new JButton("Previous");
 
         JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,6 +50,13 @@ public class NewMissionPatient {
                 frame.dispose();
             }
         });
+        button_prev.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                MissionTabPatient tabPatient = new MissionTabPatient(idUser);
+                frame.dispose();
+            }
+        });
 
 
 
@@ -65,6 +73,7 @@ public class NewMissionPatient {
 
 
         p.add(button_newmission);
+        p.add(button_prev);
         p.add(button_logout);
 
         frame.add(p);
