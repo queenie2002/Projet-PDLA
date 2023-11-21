@@ -12,23 +12,19 @@ public class MissionTabVolunteer {
     public MissionTabVolunteer (int idUser) {
 
         JFrame frame = new JFrame("Geo & Queen");
+        frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
+        JLabel emptyLabel = new JLabel("Home", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JPanel panelLogout = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         JButton button1 = new JButton("Show past missions");
         JButton button2 = new JButton("Add new mission");
         JButton button3 = new JButton("Available missions");
-        JButton button_logout = new JButton("Log Out");
-        button_logout.setPreferredSize(new Dimension(100, 30));
-        panelLogout.add(button_logout, BorderLayout.SOUTH);
 
-        /*add new mission*/
+        //add new mission
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -37,7 +33,7 @@ public class MissionTabVolunteer {
             }
         });
 
-        /*show available mission*/
+        //show available mission
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -45,7 +41,24 @@ public class MissionTabVolunteer {
                 frame.dispose();
             }
         });
-        /*logout*/
+
+        panel.add(emptyLabel);
+        panel.add(button1);
+        panel.add(button2);
+        panel.add(button3);
+
+
+
+
+
+
+        JPanel panelLogout = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        JButton button_logout = new JButton("Log Out");
+
+        panelLogout.add(button_logout, BorderLayout.SOUTH);
+
+        //logout
         button_logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -54,17 +67,15 @@ public class MissionTabVolunteer {
             }
         });
 
-        panel.setBounds(50, 100, 200, 100);
-
-        panel.add(button1);
-        panel.add(button2);
-        panel.add(button3);
         panelLogout.add(button_logout);
 
-        frame.setLayout(new BorderLayout());
+
+
+
+        panel.setBounds(50, 100, 200, 100);
+
         frame.add(panel);
         frame.add(panelLogout, BorderLayout.SOUTH);
-
 
         frame.setSize(200, 300);
         frame.setLocationRelativeTo(null); // Center the frame on the screen

@@ -20,7 +20,7 @@ public class MissionTabPatient  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //we create a label with "add new mission" and set the size
-        JLabel emptyLabel = new JLabel("Add New Mission", JLabel.CENTER);
+        JLabel emptyLabel = new JLabel("Home", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
 
 

@@ -13,14 +13,13 @@ public class ActualApp  {
         InitializeDatabase.Initialize();
 
         //we start up the program
-        SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+        //SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
 
-        /*
 
         //we start up the program
-        MissionTabPatient signuporlogin = new MissionTabPatient(1);
+        NewMissionPatient signuporlogin = new NewMissionPatient(1);
 
-        */
+
 
 
 
