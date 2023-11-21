@@ -1,5 +1,4 @@
-name: RunTests #on renomme le workflow
-
+name: RunTests 
 on:
   push:
     branches: [ "main" ]
