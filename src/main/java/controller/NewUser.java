@@ -55,6 +55,7 @@ public class NewUser {
                 }
 
             } else { //if the user already exists, tries again with an idUser incremented
+                User.incrementIdUser();
                 System.out.println("error: there is already a user with same id");
             }
         }
