@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//the home tab of a patient
 public class MissionTabPatient  {
 
     public MissionTabPatient(int idUser) {
