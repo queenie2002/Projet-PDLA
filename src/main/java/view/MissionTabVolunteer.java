@@ -15,8 +15,8 @@ public class MissionTabVolunteer {
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel emptyLabel = new JLabel("Home", JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
+        JLabel homeLabel = new JLabel("Home", JLabel.CENTER);
+        homeLabel.setPreferredSize(new Dimension(175, 100));
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
@@ -42,7 +42,7 @@ public class MissionTabVolunteer {
             }
         });
 
-        panel.add(emptyLabel);
+        panel.add(homeLabel);
         panel.add(button1);
         panel.add(button2);
         panel.add(button3);

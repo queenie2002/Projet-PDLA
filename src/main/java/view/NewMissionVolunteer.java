@@ -58,9 +58,10 @@ public class NewMissionVolunteer {
             }
         });
 
-        JLabel emptyLabel = new JLabel("New Mission", JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
+
+        JLabel addMissionLabel = new JLabel("New Mission", JLabel.CENTER);
+        addMissionLabel.setPreferredSize(new Dimension(175, 100));
+        frame.getContentPane().add(addMissionLabel, BorderLayout.PAGE_START);
 
         JPanel p = new JPanel(new GridLayout(6, 2));
         p.add(new JLabel("Location : "));

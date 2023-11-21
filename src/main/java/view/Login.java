@@ -123,9 +123,9 @@ public class Login {
         });
 
         //we create a label with "login"
-        JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
+        JLabel loginLabel = new JLabel("Login", JLabel.CENTER);
         //set the size
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
+        loginLabel.setPreferredSize(new Dimension(175, 100));
 
 
 
@@ -148,12 +148,11 @@ public class Login {
         p1.add(button_login);
 
 
-
         //we set the layout of the frame
         frame.setLayout(new GridLayout(3, 1));
 
         //we add the elements to the frame
-        frame.add(emptyLabel, BorderLayout.PAGE_START);
+        frame.add(loginLabel, BorderLayout.PAGE_START);
         frame.add(p);
         frame.add(p1);
 

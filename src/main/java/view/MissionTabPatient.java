@@ -20,8 +20,8 @@ public class MissionTabPatient  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //we create a label with "add new mission" and set the size
-        JLabel emptyLabel = new JLabel("Home", JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
+        JLabel homeLabel = new JLabel("Home", JLabel.CENTER);
+        homeLabel.setPreferredSize(new Dimension(175, 100));
 
 
 
@@ -52,7 +52,7 @@ public class MissionTabPatient  {
         });
 
         //we add the buttons and label to panel
-        panel.add(emptyLabel);
+        panel.add(homeLabel);
         panel.add(button1);
         panel.add(button2);
 

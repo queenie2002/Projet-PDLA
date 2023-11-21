@@ -18,9 +18,9 @@ public class ShowAvailableMissions {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
 
-        JLabel emptyLabel = new JLabel("Show Available Missions", JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
+        JLabel showLabel = new JLabel("Show Available Missions", JLabel.CENTER);
+        showLabel.setPreferredSize(new Dimension(175, 100));
+        frame.getContentPane().add(showLabel, BorderLayout.PAGE_START);
 
         JPanel panelLogout = new JPanel(new FlowLayout(FlowLayout.CENTER));
 

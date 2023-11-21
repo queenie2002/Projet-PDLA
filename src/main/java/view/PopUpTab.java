@@ -17,11 +17,11 @@ public class PopUpTab {
         frame.setLayout(new FlowLayout());
 
         //we create and set a label with the message
-        JLabel emptyLabel = new JLabel(message, JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
+        JLabel messageLabel = new JLabel(message, JLabel.CENTER);
+        messageLabel.setPreferredSize(new Dimension(175, 100));
 
         //we add it to the frame
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
+        frame.getContentPane().add(messageLabel, BorderLayout.PAGE_START);
 
         // Size of frame
         frame.setSize(200, 100);

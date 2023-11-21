@@ -15,14 +15,6 @@ public class ActualApp  {
         //we start up the program
         SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
 
-
-        //we start up the program
-        //Login signuporlogin = new Login();
-
-
-
-
-
     }
 }
 

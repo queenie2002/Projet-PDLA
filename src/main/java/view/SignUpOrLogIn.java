@@ -3,9 +3,10 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
+//where we start when we run the app
 public class SignUpOrLogIn  {
 
     public SignUpOrLogIn() {
@@ -17,7 +18,6 @@ public class SignUpOrLogIn  {
         JButton button1 = new JButton("Sign Up");
         JButton button2 = new JButton("Log In");
 
-
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -25,7 +25,6 @@ public class SignUpOrLogIn  {
                 frame.dispose();
             }
         });
-
 
         button2.addActionListener(new ActionListener() {
             @Override
@@ -35,19 +34,11 @@ public class SignUpOrLogIn  {
             }
         });
 
-
         panel.add(button1);
         panel.add(button2);
 
+        panel.setBorder(new EmptyBorder(250, 60, 50, 50));
 
-
-
-       frame.getContentPane().setLayout(null); // Manually position the panel
-
-
-
-        // Set the panel's position and size
-        panel.setBounds(100, 100, 200, 100);
         frame.add(panel);
 
         frame.setSize(500, 600);

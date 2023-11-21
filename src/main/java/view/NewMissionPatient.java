@@ -73,11 +73,10 @@ public class NewMissionPatient {
             }
         });
 
+        JLabel addMissionLabel = new JLabel("New Mission", JLabel.CENTER);
+        addMissionLabel.setPreferredSize(new Dimension(175, 100));
 
-        JLabel emptyLabel = new JLabel("New Mission", JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
-
-        JLabel emptyLabel1 = new JLabel();
+        JLabel emptyLabel = new JLabel();
 
 
         JPanel p = new JPanel(new GridLayout(6, 2));
@@ -86,7 +85,7 @@ public class NewMissionPatient {
         p.add(new JLabel("Description : "));
         p.add(jtFields[1]);
 
-        p.add(emptyLabel1);
+        p.add(emptyLabel);
         p.add(button_newmission);
         p.add(button_prev);
         p.add(button_logout);

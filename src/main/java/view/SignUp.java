@@ -60,9 +60,9 @@ public class SignUp {
 
 
 
-        JLabel emptyLabel = new JLabel("Sign Up", JLabel.CENTER);
-        emptyLabel.setPreferredSize(new Dimension(175, 100));
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
+        JLabel signupLabel = new JLabel("Sign Up", JLabel.CENTER);
+        signupLabel.setPreferredSize(new Dimension(175, 100));
+        frame.getContentPane().add(signupLabel, BorderLayout.PAGE_START);
 
         JPanel p = new JPanel(new GridLayout(6, 2));
         p.add(new JLabel("First name"));
