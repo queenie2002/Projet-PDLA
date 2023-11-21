@@ -47,7 +47,6 @@ public class ShowIdUser  {
                     }
                     try {
                         userType = res.getInt("type");
-                        System.out.println(userType);
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }

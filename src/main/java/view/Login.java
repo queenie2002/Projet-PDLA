@@ -103,6 +103,9 @@ public class Login {
                     //we close the frame at the end
                     frame.dispose();
                 }
+                else {//if the login information is wrong: wrong password or unknown id     --------------------------A FAIRE
+                    System.out.println("error: wrong login information");
+                }
             }
         });
 
