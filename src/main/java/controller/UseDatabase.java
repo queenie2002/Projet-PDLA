@@ -33,7 +33,7 @@ public class UseDatabase {
         stmt.execute(connectSQL);
         stmt.close();
 
-      } catch (Exception e) { //if we can't connect to database, handles error ----------------------------------------- A FAIRE
+      } catch (Exception e) { //if we can't connect to database
         System.out.println("error: couldn't connect to database");
         e.printStackTrace();
       }
@@ -49,9 +49,9 @@ public class UseDatabase {
       //we create a statement, execute it then close it
       Statement stmt = conn.createStatement();
       stmt.execute(toDo);
-      stmt.close(); //-----------------------------------------------------------------IS THAT NEEDED
+      stmt.close();
       
-    } catch (Exception e) { //if we can't execute the statement in database, handles error ----------------------------------------- A FAIRE
+    } catch (Exception e) { //if we can't execute the statement in database
       System.out.println("error: couldn't execute statement in database");
       e.printStackTrace();
     }
@@ -66,7 +66,7 @@ public class UseDatabase {
       Statement stmt = conn.createStatement();
         return stmt.executeQuery(toDo);
       
-    } catch (Exception e) {  //if we can't execute the query in database, handles error ----------------------------------------- A FAIRE
+    } catch (Exception e) {  //if we can't execute the query in database
       System.out.println("error: couldn't execute query in database");
       e.printStackTrace();
       return null;
@@ -81,7 +81,7 @@ public class UseDatabase {
       if (conn != null) { //if connection exists, we close it
         conn.close();
       }
-    } catch (Exception e) { //if the connection wasn't properly done, 't execute the query in database, handles error ----------------------------------------- A FAIRE
+    } catch (Exception e) { //if the connection wasn't properly done
       System.out.println("error: couldn't disconnect from database");
       e.printStackTrace();
     }
