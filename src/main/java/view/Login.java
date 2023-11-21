@@ -123,9 +123,7 @@ public class Login {
         JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
         //set the size
         emptyLabel.setPreferredSize(new Dimension(175, 100));
-        //add the label to the frame and set the location
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
-        //frame.add(emptyLabel, BorderLayout.PAGE_START);
+
 
 
         //we create a panel
@@ -137,12 +135,16 @@ public class Login {
         p.add(new JLabel("Password"));
         p.add(jpField);
 
+
+
         //we create another panel
         JPanel p1 = new JPanel(new GridLayout(1, 2));
 
         //we add the buttons to that panel
         p1.add(button_prev);
         p1.add(button_login);
+
+
 
         //we set the layout of the frame
         frame.setLayout(new GridLayout(3, 1));
@@ -155,15 +157,18 @@ public class Login {
         // Make the window's dimension fit its content
         frame.pack();
         // Center the frame on the screen
-        frame.setLocationRelativeTo(null);  // Center the frame on the screen
+        frame.setLocationRelativeTo(null);
         // Display the window.
         frame.setVisible(true);
     }
 
+
+    //to get idUser from textfield
     public String getIdUser() {
         return this.jtField.getText();
     }
 
+    //to get idUser from passwordfield
     public String getPassword() {
         return this.jpField.getText();
     }
