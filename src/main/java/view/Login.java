@@ -23,7 +23,7 @@ public class Login {
 
         // Create and set up the window
         JFrame frame = new JFrame("Geo & Queen");
-        frame.setLayout(new FlowLayout());
+        //frame.setLayout(new FlowLayout());
 
         //when we close, we exit the app
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +33,7 @@ public class Login {
         JButton button_login = new JButton("Login");
         JButton button_prev = new JButton("Previous");
 
-        //add action listeners
+        //when we click button login
         button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,39 +94,57 @@ public class Login {
                     else if (userType == 1) {// if it's a volunteer, we send them to MissionTabVolunteer
                         MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(Integer.parseInt(idUser));
                     }
-                    else if (userType == 2) {// if it's a guarantor, we send them to missiontabguarantor ??
-                        MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(Integer.parseInt(idUser));
+                    else if (userType == 2) {// if it's a guarantor, we send them to missiontabguarantor ?? -------------A FAIRE
+                        //have to do it here
                     }
-                    else {//
-                        System.out.println("ERROR: problem with finding the type of user in the database");
+                    else {//else there was a problem with the type of the user
+                        System.out.println("error: problem with finding the type of user in the database");
                     }
+
+                    //we close the frame at the end
                     frame.dispose();
                 }
             }
         });
 
+        //when we click button previous
         button_prev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+
+                //goes back to tab signuporlogin
                 SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+
+                //closes frame
                 frame.dispose();
             }
         });
 
-
+        //we create a label with "login"
         JLabel emptyLabel = new JLabel("Login", JLabel.CENTER);
+        //set the size
         emptyLabel.setPreferredSize(new Dimension(175, 100));
+        //add the label to the frame and set the location
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
+
+
+        //we create a panel
         JPanel p = new JPanel(new GridLayout(2, 1));
+
+        //we add the textfields to the panel
         p.add(new JLabel("ID user"));
         p.add(jtField);
         p.add(new JLabel("Password"));
         p.add(jpField);
 
+        //we create another panel
         JPanel p1 = new JPanel(new GridLayout(1, 2));
+
+        //we add the buttons to that panel
         p1.add(button_prev);
         p1.add(button_login);
+
 
         frame.setLayout(new GridLayout(3, 1));
         frame.add(emptyLabel, BorderLayout.PAGE_START);
