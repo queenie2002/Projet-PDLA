@@ -66,13 +66,14 @@ public class Login {
                     }
                 }
 
+                //if the password written corresponds to the password in the database, they can login and access the next tab
                 if (Objects.equals(passwordDatabase, password)) {
-                    //accéder à la database pour récupérer le type du user pour savoir si c'est un Patient ou un Volunteer
-                    /*connection*/
 
+                    //we get the user type from database
                     String findType = "select * from user where idUser = "+idUser;
                     ResultSet res1 = database.doQueryDatabase(conn, findType);
                     int userType=1000 ;
+
                     while (true) {
                         try {
                             if (!res1.next()) break;
@@ -85,13 +86,19 @@ public class Login {
                             throw new RuntimeException(ex);
                         }
                     }
-                    if (userType == 0) {
-                        MissionTabPatient tabPatient = new MissionTabPatient(Integer.parseInt(idUser));
 
-                    } else if (userType == 1) {
+
+                    if (userType == 0) {// if it's a patient, we send them to MissionTabPatient
+                        MissionTabPatient tabPatient = new MissionTabPatient(Integer.parseInt(idUser));
+                    }
+                    else if (userType == 1) {// if it's a volunteer, we send them to MissionTabVolunteer
                         MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(Integer.parseInt(idUser));
-                    } else {
-                        System.out.println("problem with finding the user in the database");
+                    }
+                    else if (userType == 2) {// if it's a guarantor, we send them to missiontabguarantor ??
+                        MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(Integer.parseInt(idUser));
+                    }
+                    else {//
+                        System.out.println("ERROR: problem with finding the type of user in the database");
                     }
                     frame.dispose();
                 }
