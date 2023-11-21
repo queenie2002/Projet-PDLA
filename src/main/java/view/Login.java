@@ -11,36 +11,48 @@ import java.util.Objects;
 
 public class Login {
 
+    //text field to get written idUser
     private JTextField jtField = new JTextField();
+
+    //password field to get written password
     private JPasswordField jpField = new JPasswordField();
 
 
 
     public  Login() {
+
         // Create and set up the window
         JFrame frame = new JFrame("Geo & Queen");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
 
+        //when we close, we exit the app
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        //we create buttons
         JButton button_login = new JButton("Login");
         JButton button_prev = new JButton("Previous");
+
+        //add action listeners
         button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                //we get the written idUser and password
                 String idUser = getIdUser();
                 String password = getPassword();
 
+                //connect to database
                 UseDatabase database = new UseDatabase();
                 Connection conn;
                 conn = database.connectToDatabase();
 
-                /*asks for password and user*/
+                //gets the password of written iduser in the database
                 String stringSql = "select idUser, password from user where idUser = " + idUser + ";";
                 ResultSet res = database.doQueryDatabase(conn, stringSql);
-
-                int idUserDatabase = 50000;
                 String passwordDatabase = "";
 
+                //if there is such a user, we get their password from database
                 while (true) {
                     try {
                         if (!res.next()) break;
@@ -48,14 +60,13 @@ public class Login {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        idUserDatabase = res.getInt("idUser");
                         passwordDatabase = res.getString("password");
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
 
-                if ((idUserDatabase == Integer.parseInt(idUser)) && Objects.equals(passwordDatabase, password)) {
+                if (Objects.equals(passwordDatabase, password)) {
                     //accéder à la database pour récupérer le type du user pour savoir si c'est un Patient ou un Volunteer
                     /*connection*/
 
@@ -75,10 +86,10 @@ public class Login {
                         }
                     }
                     if (userType == 0) {
-                        MissionTabPatient tabPatient = new MissionTabPatient(idUserDatabase);
+                        MissionTabPatient tabPatient = new MissionTabPatient(Integer.parseInt(idUser));
 
                     } else if (userType == 1) {
-                        MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(idUserDatabase);
+                        MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(Integer.parseInt(idUser));
                     } else {
                         System.out.println("problem with finding the user in the database");
                     }
