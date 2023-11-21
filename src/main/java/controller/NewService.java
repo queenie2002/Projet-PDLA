@@ -30,7 +30,7 @@ public class NewService {
         if (serviceExists == 0) { //if the service doesn't exist, we create a new service
             
             //insert service into database
-            String insertSql = "INSERT INTO service (idService, idPatient, idVolunteer, location, description, typeOfService, status) VALUES (" + service.getIdService() + "," + service.getIdPatient() + ", NULL, '" + /*service.getIdVolunteer()*/  service.getLocation() + "' , '" + service.getDescription() + "' ," + service.getTypeOfService() + "," + service.getStatus() + ");";
+            String insertSql = "INSERT INTO service (idService, idPatient, idVolunteer, location, description, typeOfService, status) VALUES (" + service.getIdService() + "," + service.getIdPatient() + "," + service.getIdVolunteer() + ", '" + service.getLocation() + "' , '" + service.getDescription() + "' ," + service.getTypeOfService() + "," + service.getStatus() + ");";
             database.doStatementDatabase(conn, insertSql);
            
         } else {//if the service already exists, handles the error---------------------------------------------------A FAIRE, create a frame that shows this and redoes the process

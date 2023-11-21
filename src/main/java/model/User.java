@@ -28,5 +28,4 @@ public class User{
     public int getType (){ return this.type;}
     public String getPassword (){ return this.password;}
     public String getDateOfBirth (){ return dateOfBirth;}
-
 } 
