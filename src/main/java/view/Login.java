@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.Objects;
 
-
+//to login the app
 public class Login {
 
     //text field to get written idUser
