@@ -3,6 +3,7 @@ import controller.UseDatabase;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -138,7 +139,7 @@ public class Login {
         p.add(new JLabel("Password"));
         p.add(jpField);
 
-
+        p.setBorder(new EmptyBorder(50, 50, 50, 50));
 
         //we create another panel
         JPanel p1 = new JPanel(new GridLayout(1, 2));
@@ -147,6 +148,7 @@ public class Login {
         p1.add(button_prev);
         p1.add(button_login);
 
+        p1.setBorder(new EmptyBorder(50, 50, 50, 50));
 
         //we set the layout of the frame
         frame.setLayout(new GridLayout(3, 1));

@@ -13,7 +13,7 @@ public class ActualApp  {
         InitializeDatabase.Initialize();
 
         //we start up the program
-        SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
+        Login signuporlogin = new Login();
 
     }
 }
