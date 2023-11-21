@@ -175,6 +175,4 @@ public class Login {
     public String getPassword() {
         return this.jpField.getText();
     }
-
-
 }

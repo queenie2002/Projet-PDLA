@@ -87,10 +87,4 @@ public class NewMissionVolunteer {
         public String getDescription() {
             return this.jtFields[1].getText();
         }
-
-
-
-
-
-
 }

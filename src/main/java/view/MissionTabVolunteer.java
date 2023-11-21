@@ -6,8 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+//the home tab of a volunteer
 public class MissionTabVolunteer {
+
     public MissionTabVolunteer (int idUser) {
+
         JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -67,7 +70,5 @@ public class MissionTabVolunteer {
         frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.setVisible(true);
     }
-
-
 }
 

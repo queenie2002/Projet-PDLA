@@ -30,5 +30,4 @@ public class PopUpTab {
         // Display the window.
         frame.setVisible(true);
     }
-
 }
