@@ -6,45 +6,16 @@ import java.sql.*;
 import view.*;
 
 public class ActualApp  {
-    static String url = "jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/projet_gei_002";
-    static String username = "projet_gei_002";
-    static String password = "Lio0Uhah";
-
-
-
-
-
-
-
-
 
     public static void main(String[] args){
 
-        /**********************************************
-                        INITIALIZING
-        ***********************************************/
-
+        //we initialize the database
         InitializeDatabase.Initialize();
 
-
-        /**********************************************
-                     STARTING PROGRAM
-         ***********************************************/
-
-
-        SignUpOrLogIn signuporlogin1 = new SignUpOrLogIn();
-
-
-
-
-
+        //we start up the program
+        SignUpOrLogIn signuporlogin = new SignUpOrLogIn();
 
     }
-
-
-
-
-
 }
 
 
