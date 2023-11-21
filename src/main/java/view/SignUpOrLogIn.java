@@ -50,7 +50,7 @@ public class SignUpOrLogIn  {
         panel.setBounds(100, 100, 200, 100);
         frame.add(panel);
 
-        frame.setSize(400, 300);
+        frame.setSize(500, 600);
         frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.setVisible(true);
     }

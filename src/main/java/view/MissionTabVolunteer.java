@@ -77,7 +77,7 @@ public class MissionTabVolunteer {
         frame.add(panel);
         frame.add(panelLogout, BorderLayout.SOUTH);
 
-        frame.setSize(200, 300);
+        frame.setSize(500, 600);
         frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.setVisible(true);
     }

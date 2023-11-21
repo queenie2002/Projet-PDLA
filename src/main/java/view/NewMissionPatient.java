@@ -92,7 +92,7 @@ public class NewMissionPatient {
         p.add(button_logout);
 
         frame.add(p);
-        frame.setSize(400, 300);
+        frame.setSize(500, 600);
         frame.setLocationRelativeTo(null);//center frame on screen
         // Display the window.
         frame.setVisible(true);

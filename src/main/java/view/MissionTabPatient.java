@@ -86,7 +86,7 @@ public class MissionTabPatient  {
         frame.add(panel);
         frame.add(panel1);
 
-        frame.setSize(400, 300);
+        frame.setSize(500, 600);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

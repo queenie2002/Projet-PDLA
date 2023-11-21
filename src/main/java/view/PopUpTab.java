@@ -23,8 +23,8 @@ public class PopUpTab {
         //we add it to the frame
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
-        // Make the window's dimension fit its content
-        frame.pack();
+        // Size of frame
+        frame.setSize(200, 100);
         // Center the frame on the screen
         frame.setLocationRelativeTo(null);
         // Display the window.

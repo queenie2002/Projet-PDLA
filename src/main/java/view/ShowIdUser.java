@@ -16,11 +16,8 @@ public class ShowIdUser  {
         JFrame frame = new JFrame("Geo & Queen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel emptyLabel = new JLabel("ID USER", JLabel.CENTER);
         JLabel textLabel = new JLabel("Your user ID is : "+ newId , JLabel.CENTER);
 
-
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
         frame.getContentPane().add(textLabel, BorderLayout.CENTER);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -66,7 +63,7 @@ public class ShowIdUser  {
         frame.getContentPane().add(panel, BorderLayout.PAGE_END);
         frame.setLocationRelativeTo(null);//center frame on screen
 
-        frame.setSize(300, 200);
+        frame.setSize(200, 100);
         frame.setVisible(true);
     }
 }

@@ -73,8 +73,7 @@ public class NewMissionVolunteer {
         p.add(button_logout);
 
         frame.add(p);
-        // Make the window's dimension fit its content
-        frame.pack();
+        frame.setSize(500, 600);
         frame.setLocationRelativeTo(null);//center frame on screen
         // Display the window.
         frame.setVisible(true);

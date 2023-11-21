@@ -157,8 +157,7 @@ public class Login {
         frame.add(p);
         frame.add(p1);
 
-        // Make the window's dimension fit its content
-        frame.pack();
+        frame.setSize(500, 600);
         // Center the frame on the screen
         frame.setLocationRelativeTo(null);
         // Display the window.

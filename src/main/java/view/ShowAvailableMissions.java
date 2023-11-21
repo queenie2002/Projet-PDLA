@@ -139,9 +139,7 @@ public class ShowAvailableMissions {
                 frame.add(panelLogout);
 
                 frame.setLocationRelativeTo(null); // Center the frame on the screen
-                /*show available missions*/
-                // Make the window's dimension fit its content
-                frame.pack();
+                frame.setSize(500, 600);
                 // Display the window.
                 frame.setVisible(true);
 
