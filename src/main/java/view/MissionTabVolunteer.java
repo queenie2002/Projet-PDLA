@@ -25,6 +25,15 @@ public class MissionTabVolunteer {
         button_logout.setPreferredSize(new Dimension(100, 30));
         panelLogout.add(button_logout, BorderLayout.SOUTH);
 
+        /*add new mission*/
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                NewMissionVolunteer tabNewMission = new NewMissionVolunteer(idUser);
+                frame.dispose();
+            }
+        });
+
         /*show available mission*/
         button3.addActionListener(new ActionListener() {
             @Override
