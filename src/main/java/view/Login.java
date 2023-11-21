@@ -21,9 +21,8 @@ public class Login {
 
     public  Login() {
 
-        // Create and set up the window
+        // create the window
         JFrame frame = new JFrame("Geo & Queen");
-        //frame.setLayout(new FlowLayout());
 
         //when we close, we exit the app
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,7 +125,7 @@ public class Login {
         emptyLabel.setPreferredSize(new Dimension(175, 100));
         //add the label to the frame and set the location
         frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
-
+        //frame.add(emptyLabel, BorderLayout.PAGE_START);
 
 
         //we create a panel
@@ -145,8 +144,10 @@ public class Login {
         p1.add(button_prev);
         p1.add(button_login);
 
-
+        //we set the layout of the frame
         frame.setLayout(new GridLayout(3, 1));
+
+        //we add the elements to the frame
         frame.add(emptyLabel, BorderLayout.PAGE_START);
         frame.add(p);
         frame.add(p1);
