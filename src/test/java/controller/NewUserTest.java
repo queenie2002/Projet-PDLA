@@ -27,8 +27,8 @@ public class NewUserTest {
 
         model.User user = new User(firstName,lastName,type,password,dateOfBirth);
         controller.NewUser.AddNewUser(user);
-
         int idUser = user.getId();
+
 
         //connection
         UseDatabase database = new UseDatabase();
