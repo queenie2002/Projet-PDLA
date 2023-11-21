@@ -16,10 +16,13 @@ public class NewService {
 
 
         //check if service exists already
+
+        //asks for information from database
         String existsSql = "select exists (select * FROM service WHERE idService = " + service.getIdService() + ");";
         ResultSet res = database.doQueryDatabase(conn, existsSql);     //returns 1 if there already is a service with same id
         int serviceExists = 0;        //we initialize to 0
 
+        //treats the result
         while (res.next()) {
             serviceExists = res.getInt(1);
         }
@@ -30,9 +33,10 @@ public class NewService {
             String insertSql = "INSERT INTO service (idService, idPatient, idVolunteer, location, description, typeOfService, status) VALUES (" + service.getIdService() + "," + service.getIdPatient() + ", NULL, '" + /*service.getIdVolunteer()*/  service.getLocation() + "' , '" + service.getDescription() + "' ," + service.getTypeOfService() + "," + service.getStatus() + ");";
             database.doStatementDatabase(conn, insertSql);
            
-        } else {//if it already exists, handles the error---------------------------------------------------A FAIRE, create a frame that shows this and redoes the process
+        } else {//if the service already exists, handles the error---------------------------------------------------A FAIRE, create a frame that shows this and redoes the process
             System.out.println("error: there is already a service with same id (dans NewService)"); 
         }
+        
         //disconnection from database
         database.disconnectToDatabase(conn);
     }
