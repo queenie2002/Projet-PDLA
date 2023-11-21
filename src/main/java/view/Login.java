@@ -54,13 +54,13 @@ public class Login {
                 //if there is such a user, we get their password from database
                 while (true) {
                     try {
-                        if (!res.next()) break;
-                    } catch (SQLException ex) {
+                        if (!res.next()) break; //if there is no next row, breaks out of the loop
+                    } catch (SQLException ex) { //if there is an exception, wraps it in runtime exception
                         throw new RuntimeException(ex);
                     }
-                    try {
+                    try { //gets password
                         passwordDatabase = res.getString("password");
-                    } catch (SQLException ex) {
+                    } catch (SQLException ex) { //if there is an exception, wraps it in runtime exception
                         throw new RuntimeException(ex);
                     }
                 }
