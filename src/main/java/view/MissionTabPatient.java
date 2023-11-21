@@ -1,5 +1,7 @@
 package view;
 
+import controller.InitializeDatabase;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,10 +19,9 @@ public class MissionTabPatient  {
         //when we close, we exit the app
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //we create a label with "add new mission" and set the size ----------------FORSOMEREASON DOESNT APPEAR
+        //we create a label with "add new mission" and set the size
         JLabel emptyLabel = new JLabel("Add New Mission", JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
-        frame.getContentPane().add(emptyLabel, BorderLayout.PAGE_START);
 
 
 
@@ -50,7 +51,8 @@ public class MissionTabPatient  {
             }
         });
 
-        //we add the buttons to panel
+        //we add the buttons and label to panel
+        panel.add(emptyLabel);
         panel.add(button1);
         panel.add(button2);
 
@@ -76,8 +78,9 @@ public class MissionTabPatient  {
         panel1.add(button3);
 
         //place the panels
+        panel.setBounds(100, 30, 200, 300);
         panel1.setBounds(300, 200, 100, 50);
-        panel.setBounds(100, 100, 200, 100);
+
 
         //we add the panels to the frame
         frame.add(panel);
@@ -87,6 +90,7 @@ public class MissionTabPatient  {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+
 }
 
 
