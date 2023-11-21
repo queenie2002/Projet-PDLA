@@ -35,7 +35,7 @@ public class NewMissionPatient {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-                MissionCreated missioncreated = new MissionCreated();
+                PopUpTab popup = new PopUpTab("Mission Created");
                 MissionTabPatient missiontabpatient = new MissionTabPatient(idUser);
                 frame.dispose();
 

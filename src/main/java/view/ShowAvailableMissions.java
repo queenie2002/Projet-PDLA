@@ -94,7 +94,7 @@ public class ShowAvailableMissions {
                                 database.disconnectToDatabase(finalConn);
 
                                 // Show message : Mission Accepted
-                                MissionAccepted message = new MissionAccepted();
+                                PopUpTab popup = new PopUpTab("Mission Accepted");
 
                             } finally {
                                 if (finalConn != null) {

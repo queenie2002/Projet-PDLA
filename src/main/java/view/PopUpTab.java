@@ -3,9 +3,9 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-//when we accept a mission, this tab pops-up
-public class MissionAccepted {
-    public MissionAccepted() {
+//this is a pop up tab that shows a message
+public class PopUpTab {
+    public PopUpTab(String message) {
 
         // create the window
         JFrame frame = new JFrame("Geo & Queen");
@@ -16,8 +16,8 @@ public class MissionAccepted {
         //we set the layout
         frame.setLayout(new FlowLayout());
 
-        //we create and set a label
-        JLabel emptyLabel = new JLabel("Mission Accepted", JLabel.CENTER);
+        //we create and set a label with the message
+        JLabel emptyLabel = new JLabel(message, JLabel.CENTER);
         emptyLabel.setPreferredSize(new Dimension(175, 100));
 
         //we add it to the frame
