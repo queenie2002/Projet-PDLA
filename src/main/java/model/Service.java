@@ -31,4 +31,5 @@ public class Service{
     public int getTypeOfService (){ return this.typeOfService;}
     public int getStatus(){ return status;}
 
+    public static void incrementIdService() {idService++;}
 } 
