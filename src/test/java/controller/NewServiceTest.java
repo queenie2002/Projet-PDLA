@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class NewServiceTest {
 
     @Test
-    public void testAddNewService() {
+    public void testNewService() {
         Initialize();
     }
 
