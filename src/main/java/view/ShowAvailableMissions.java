@@ -33,7 +33,7 @@ public class ShowAvailableMissions {
                 conn = database.connectToDatabase();
 
                 /*number of available services*/
-                String insertNumberMissions = "SELECT COUNT(*) FROM service WHERE status = 0";
+                String insertNumberMissions = "SELECT COUNT(*) FROM service WHERE status = 0 AND type = 0";
                 ResultSet res = database.doQueryDatabase(conn, insertNumberMissions);
 
                 int nbMissions = 0;
@@ -48,7 +48,7 @@ public class ShowAvailableMissions {
 
                 int iter = 0;
                 /*available missions*/
-                String mission = "select * from service where status = 0";
+                String mission = "select * from service where status = 0 and type = 0";
                 ResultSet res_missions = database.doQueryDatabase(conn, mission);
 
                 while (res_missions.next()) {
