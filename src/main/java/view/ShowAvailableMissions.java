@@ -38,7 +38,7 @@ public class ShowAvailableMissions {
                 conn = database.connectToDatabase();
 
                 /*number of available services*/
-                String insertNumberMissions = "SELECT COUNT(*) FROM service WHERE status = 0";
+                String insertNumberMissions = "SELECT COUNT(*) FROM service WHERE status = 0 AND type = 0";
                 ResultSet res = database.doQueryDatabase(conn, insertNumberMissions);
 
                 int nbMissions = 0;
@@ -54,7 +54,7 @@ public class ShowAvailableMissions {
                 int iter = 0;
 
                 /*we get the available missions from database*/
-                String mission = "select * from service where status = 0";
+                String mission = "select * from service where status = 0 and type = 0";
                 ResultSet res_missions = database.doQueryDatabase(conn, mission);
 
                 while (res_missions.next()) {
@@ -69,6 +69,7 @@ public class ShowAvailableMissions {
 
                     //we create a panel for every mission, where we write the mission's idservice
                     JPanel p = new JPanel(new BorderLayout());
+
                     p.add(new JLabel("Mission n°" + idService), BorderLayout.NORTH);
 
                     // New panel for location and description for every mission
@@ -116,8 +117,10 @@ public class ShowAvailableMissions {
                         }
                     });
 
+
                     p.add(button_accept, BorderLayout.SOUTH);
                     frame.add(p);
+
 
                     iter++;
                 }
