@@ -17,22 +17,27 @@ public class ShowIdUser  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel textLabel = new JLabel("Your user ID is : "+ newId , JLabel.CENTER);
-
         frame.getContentPane().add(textLabel, BorderLayout.CENTER);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JButton button = new JButton("Next");
 
-        button.addActionListener(new ActionListener() {
+        JButton button_next = new JButton("Next");
+
+        button_next.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 //close frame when we click on button
                 frame.dispose();
+
                 // connect to database to get the type to see if it's a Patient or a Volunteer
-                /*connection*/
+
+                //connection
                 UseDatabase database = new UseDatabase();
                 Connection conn;
                 conn = database.connectToDatabase();
+
+                //get type from database
                 String findType = "select * from user where idUser = "+newId;
                 ResultSet res = database.doQueryDatabase(conn, findType);
                 int userType=1000 ;
@@ -48,21 +53,26 @@ public class ShowIdUser  {
                         throw new RuntimeException(ex);
                     }
                 }
+
+                //opens mission tab of corresponding type
                 if (userType == 0) {
                     MissionTabPatient tabPatient = new MissionTabPatient(newId);
                 } else if (userType == 1) {
                     MissionTabVolunteer tabVolunteer = new MissionTabVolunteer(newId);
                 } else {
-                    System.out.println("problem with finding the user in the database");
+                    System.out.println("error : problem with finding the user in the database (in ShowIdUser)");
                 }
 
+                //disconnection from database
+                database.disconnectToDatabase(conn);
             }
         });
 
-        panel.add(button);
-        frame.getContentPane().add(panel, BorderLayout.PAGE_END);
-        frame.setLocationRelativeTo(null);//center frame on screen
+        panel.add(button_next);
 
+        frame.getContentPane().add(panel, BorderLayout.PAGE_END);
+
+        frame.setLocationRelativeTo(null);//center frame on screen
         frame.setSize(200, 100);
         frame.setVisible(true);
     }

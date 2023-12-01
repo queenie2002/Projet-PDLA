@@ -72,6 +72,9 @@ public class NewUserTest {
         assertEquals(type, typeDatabase, "should be equal 0");
         assertEquals(password, passwordDatabase, "should be equal pwd");
         assertEquals(dateOfBirth, dateOfBirthDatabase, "should be equal 2002-12-12");
+
+        //disconnection from database
+        database.disconnectToDatabase(conn);
     }
 
     @Test
@@ -121,6 +124,8 @@ public class NewUserTest {
         //we verify that the type is equal to 1 (which is the type of  volunteer)
         assertEquals(type, typeDatabase, "should be equal 1");
 
+        //disconnection from database
+        database.disconnectToDatabase(conn);
     }
 
 }

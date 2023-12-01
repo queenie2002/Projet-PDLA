@@ -78,8 +78,9 @@ public class NewServiceTest {
         assertEquals(typeOfService, typeOfServiceDatabase, "should be equal 0");
         assertEquals(status, statusDatabase, "should be equal 0");
 
+        //disconnection from database
+        database.disconnectToDatabase(conn);
+
     }
-
-
 
 }

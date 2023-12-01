@@ -107,6 +107,9 @@ public class Login {
                 else {//if the login information is wrong: wrong password or unknown id     --------------------------A FAIRE
                     System.out.println("error: wrong login information");
                 }
+
+                //disconnection from database
+                database.disconnectToDatabase(conn);
             }
         });
 

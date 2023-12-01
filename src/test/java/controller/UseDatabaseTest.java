@@ -21,6 +21,9 @@ public class UseDatabaseTest {
         else {
             System.out.println("problem with connection");
         }
+
+        //disconnection from database
+        database.disconnectToDatabase(conn);
     }
 
     @Test

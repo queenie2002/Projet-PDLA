@@ -15,10 +15,10 @@ public class SignUpOrLogIn  {
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-        JButton button1 = new JButton("Sign Up");
-        JButton button2 = new JButton("Log In");
+        JButton button_signup = new JButton("Sign Up");
+        JButton button_login = new JButton("Log In");
 
-        button1.addActionListener(new ActionListener() {
+        button_signup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 SignUp signup = new SignUp();
@@ -26,7 +26,7 @@ public class SignUpOrLogIn  {
             }
         });
 
-        button2.addActionListener(new ActionListener() {
+        button_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Login login = new Login();
@@ -34,11 +34,10 @@ public class SignUpOrLogIn  {
             }
         });
 
-        panel.add(button1);
-        panel.add(button2);
+        panel.add(button_signup);
+        panel.add(button_login);
 
         panel.setBorder(new EmptyBorder(250, 60, 50, 50));
-
         frame.add(panel);
 
         frame.setSize(500, 600);

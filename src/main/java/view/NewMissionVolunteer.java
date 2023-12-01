@@ -13,6 +13,13 @@ public class NewMissionVolunteer {
 
     private final JTextField[] jtFields = new JTextField[2];
     public NewMissionVolunteer (int idUser) {
+        JFrame frame = new JFrame("Geo & Queen");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel addMissionLabel = new JLabel("New Mission", JLabel.CENTER);
+        addMissionLabel.setPreferredSize(new Dimension(175, 100));
+        frame.getContentPane().add(addMissionLabel, BorderLayout.PAGE_START);
+
         jtFields[0] = new JTextField();
         jtFields[1] = new JTextField();
 
@@ -20,15 +27,13 @@ public class NewMissionVolunteer {
         JButton button_logout = new JButton("Log Out");
         JButton button_prev = new JButton("Previous");
 
-        JFrame frame = new JFrame("Geo & Queen");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button_newmission.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String location = getLocation();
                 String description = getDescription();
 
-                /*ajout du nouveau service dans la database*/
+                //we add the new service to database with typeofservice = 1 because a volunteer is creating that service
                 model.Service service = new Service(0, idUser, location, description, 1, 0);
                 try {
                     NewService.AddNewService(service);
@@ -59,10 +64,6 @@ public class NewMissionVolunteer {
         });
 
 
-        JLabel addMissionLabel = new JLabel("New Mission", JLabel.CENTER);
-        addMissionLabel.setPreferredSize(new Dimension(175, 100));
-        frame.getContentPane().add(addMissionLabel, BorderLayout.PAGE_START);
-
         JPanel p = new JPanel(new GridLayout(6, 2));
         p.add(new JLabel("Location : "));
         p.add(jtFields[0]);
@@ -74,9 +75,10 @@ public class NewMissionVolunteer {
         p.add(button_logout);
 
         frame.add(p);
+
+
         frame.setSize(500, 600);
-        frame.setLocationRelativeTo(null);//center frame on screen
-        // Display the window.
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
